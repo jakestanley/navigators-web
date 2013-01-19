@@ -1,14 +1,31 @@
 package begin;
 
+import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 
+import ships.ShipUpgrader;
+
 public class Game extends BasicGame{
 
 	public Game(String title) {
 		super("Space Commanders");
+	}
+	
+	public ShipList shiplist;
+	public ShipUpgrader upgrader;
+	
+	public static void main(String[] args) throws SlickException {
+			
+		AppGameContainer game = new AppGameContainer(new Game("Space Commanders"));
+		game.setDisplayMode(800, 600, false);
+		game.start();
+		
+		//setupGame();
+		//startGame();
+		
 	}
 	
 	@Override
