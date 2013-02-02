@@ -10,8 +10,6 @@ import tools.Coordinate;
 
 public class Ship {
 	
-	// use a system similar to that of the Reactor power distribution system to distribute coolant
-	
 	int shipID, availableCoolant;
 	Coordinate location;
 	
@@ -66,6 +64,7 @@ public class Ship {
 		boolean success = false; 
 		if(canReleaseCoolant()){
 			availableCoolant = availableCoolant - 5; 
+			success =  true;
 		}
 		return success;
 	}
@@ -73,7 +72,8 @@ public class Ship {
 	public boolean receiveCoolant(){
 		boolean success = false; 
 		if(canReceiveCoolant()){
-			availableCoolant = availableCoolant + 5; 
+			availableCoolant = availableCoolant + 5;
+			success =  true;
 		}
 		return success;
 	}
