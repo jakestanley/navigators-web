@@ -22,11 +22,12 @@ public class Member {
 	}
 	
 	public void setShipID(int shipID) {
+		// if statement against ships, to make sure the target ship is actually in the list of ships 
 		this.shipID = shipID;
 	}
 	
 	public int getShipID() {
-		return shipID;
+		return this.shipID;
 	}
 	
 	public int getMorale() {
@@ -58,7 +59,7 @@ public class Member {
 	}
 
 	public int getSkill() {
-		return skill;
+		return this.skill;
 	}
 
 	public boolean improveSkill() {
@@ -82,19 +83,23 @@ public class Member {
 	}
 
 	public String getFirstName() {
-		return firstName;
+		return this.firstName;
 	}
 	
 	public String getLastName() {
-		return lastName;
+		return this.lastName;
 	}
 	
 	public int getGender() {
-		return gender;
+		return this.gender;
 	}
 
 	public int getRank(){
-		return rank;
+		return this.rank;
+	}
+	
+	public int getCrewID(){
+		return this.crewID;
 	}
 
 	public void setFirstName(String firstName) {

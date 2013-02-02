@@ -2,10 +2,14 @@ package ships;
 
 /**
  * Coolant can be distributed throughout the ship to components.
+ * A ship's components and crew are attached to the unique shipID.
+ * The shipID MUST be unique, or horrible shit will happen.
  */
 
 import java.util.ArrayList;
 import ships.Weapon;
+
+// arraylist of ships needs to be made
 
 public class Ship {
 	
@@ -20,6 +24,8 @@ public class Ship {
 	int powerRegenRate;
 	int shieldDrainRate;
 	int weaponHardPoints;
+	int yearLaunched;
+	float shipX, shipY, shipZ;
 	
 	boolean sheildOn;
 	

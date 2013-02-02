@@ -2,10 +2,10 @@ package ships;
 
 public class Reactor extends Component{
 	
-	int capacity, maxCapacity;
+	int capacity;
 	
-	public Reactor(){
-		
+	public Reactor(int id){
+		super(id);
 	}
 
 }
