@@ -1,12 +1,12 @@
 package ships;
 
-public class Weapon {
+public class Weapon extends Component {
 
-	public Weapon(int type, int size, int strength) {
+	int rateOfFire, power, projectileSize;
+	
+	public Weapon(){
 		
-		int weaponType = type;
-		int weaponSize = size;
-		int weaponStrength = strength;
+		
 		
 	}
 	

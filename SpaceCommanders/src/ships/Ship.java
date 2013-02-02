@@ -1,16 +1,17 @@
 package ships;
 
+/**
+ * Coolant can be distributed throughout the ship to components.
+ */
+
 import java.util.ArrayList;
 import ships.Weapon;
 
 public class Ship {
 	
-	// this class creates a ship as per the passed type parameter
-	
-	int shipID;
+	int shipID, coolant;
 	
 	String shipName;
-	ArrayList<Weapon> weaponslist = new ArrayList<Weapon>();
 	
 	int shipType; // ship size is 1:2 width to length (for now) - effects amount of possible chambers
 	int shieldType;
@@ -57,7 +58,6 @@ public class Ship {
 		stats += Integer.toString(shipID);
 		stats += " ship stock weight: " + stockWeight + ", ";
 		stats += " ship max weight: " + maxWeight + ", ";
-		stats += "max weapon hardpoints: ?" + weaponslist.size(); // TODO
 		
 		return stats;
 		// TODO for testing purposes only

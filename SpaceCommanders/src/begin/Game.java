@@ -6,8 +6,6 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 
-import ships.ShipUpgrader;
-
 public class Game extends BasicGame{
 
 	public Game(String title) {
@@ -15,7 +13,6 @@ public class Game extends BasicGame{
 	}
 	
 	public ShipList shiplist;
-	public ShipUpgrader upgrader;
 	
 	public static void main(String[] args) throws SlickException {
 			
