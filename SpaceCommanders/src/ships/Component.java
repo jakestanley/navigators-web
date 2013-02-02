@@ -13,7 +13,7 @@ package ships;
 public class Component {
 	
 	int shipID;
-	float heat, heatConstant, health;
+	float heat, heatConstant, health, coolant;
 	
 	public Component(int id){
 		this.heat = 0; this.heatConstant = 0;
