@@ -19,14 +19,63 @@ public class Ship {
 	
 	public Ship(int id, String name, int type, Coordinate loc) {
 		
+		availableCoolant = 100;
 		location = loc;
 		shipID = id;
 		shipName = name;
 
 	}
 	
+	public String getShipName() {
+		return shipName;
+	}
+
+	public void setShipName(String shipName) {
+		this.shipName = shipName;
+	}
+
 	public Coordinate getLocation(){
 		return this.location;
+	}
+	
+	public void setLocation(Coordinate location) {
+		this.location = location;
+	}
+
+	public int getAvailableCoolant(){
+		return this.availableCoolant;
+	}
+	
+	public boolean canReleaseCoolant(){
+		boolean canRelease = false;
+		if(getAvailableCoolant() > 0){
+			canRelease = true;
+		}
+		return canRelease;
+	}
+	
+	public boolean canReceiveCoolant(){
+		boolean canReceive = false;
+		if(getAvailableCoolant() < 100){
+			canReceive = true;
+		}
+		return canReceive;
+	}
+	
+	public boolean releaseCoolant(){
+		boolean success = false; 
+		if(canReleaseCoolant()){
+			availableCoolant = availableCoolant - 5; 
+		}
+		return success;
+	}
+	
+	public boolean receiveCoolant(){
+		boolean success = false; 
+		if(canReceiveCoolant()){
+			availableCoolant = availableCoolant + 5; 
+		}
+		return success;
 	}
 	
 }
