@@ -11,12 +11,11 @@ import org.newdawn.slick.SlickException;
 import ships.Reactor;
 import ships.Ship;
 import ships.Weapon;
+import tools.Coordinate;
 
 public class Game extends BasicGame{
-
-	ArrayList<Ship> shipList = new ArrayList<Ship>();
-	ArrayList<Weapon> weaponList= new ArrayList<Weapon>();
-	ArrayList<Reactor> reactorList = new ArrayList<Reactor>();
+	
+	public static Setup setup;
 	
 	public Game(String title) {
 		super("Space Commanders");
@@ -42,7 +41,7 @@ public class Game extends BasicGame{
 	@Override
 	public void init(GameContainer gc) throws SlickException {
 		// TODO Auto-generated method stub
-		
+		setup = new Setup(true);
 	}
 
 	@Override

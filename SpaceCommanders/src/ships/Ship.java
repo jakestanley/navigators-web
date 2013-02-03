@@ -1,5 +1,6 @@
 package ships;
 
+import begin.Game;
 import tools.Coordinate;
 
 /**
@@ -12,11 +13,15 @@ public class Ship {
 	
 	int shipID, availableCoolant;
 	Coordinate location;
+	Weapon shipWeapon;
+	Reactor shipReactor;
 	
 	String shipName;
 	
-	public Ship(int id, String name, int type, Coordinate loc) {
+	public Ship(int id, String name, Coordinate loc) {
 		
+		shipWeapon = new Weapon();
+		shipReactor = new Reactor();
 		availableCoolant = 100;
 		location = loc;
 		shipID = id;
@@ -76,6 +81,16 @@ public class Ship {
 			success =  true;
 		}
 		return success;
+	}
+	
+	public int getShipID(){
+		return this.shipID;
+	}
+	
+	public void printAllShipInfo(){
+		System.out.println("Name: " + getShipName());
+		System.out.println("Location: " + location.get3DCoordinateAsString());
+		System.out.println(shipReactor.getUsage());
 	}
 	
 }
