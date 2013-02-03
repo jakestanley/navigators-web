@@ -16,21 +16,20 @@ package ships;
 
 public class Reactor extends Component{
 	
-	int usage;
-	float weaponDistribution, engineDistribution, lifeDistribution, auxDistribution;
+	float usage, weaponDistribution, engineDistribution, lifeDistribution, auxDistribution;
 	
-	public Reactor(int id){
-		super(id);
-		usage = 0;
-		weaponDistribution = 0; 
-		engineDistribution = 0; 
-		lifeDistribution = 0; 
-		auxDistribution = 0;
+	public Reactor(){
+		super();
+		this.usage = 0;
+		this.weaponDistribution = 0; 
+		this.engineDistribution = 0; 
+		this.lifeDistribution = 0; 
+		this.auxDistribution = 0;
 		
 	}
 	
-	public int getUsage() {
-		System.out.println("Reactor at " + getUsage() + "% capacity.");
+	public float getUsage() {
+		System.out.println("Reactor at " + this.usage + "% capacity.");
 		return this.usage;
 	}
 	
