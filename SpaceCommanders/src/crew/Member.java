@@ -15,36 +15,40 @@ import begin.Game;
  */
 
 public class Member {
-	
-	int rank, shipID, crewID, skill, gender, morale, age;
+
+	// New skill types: 
+
+	int rank, shipID, crewID, gender, morale, age;
+	int engSkill, fightSkill, helmSkill;
 	String firstName, lastName;
-	
+
 	public Member(String fName, String lName, int sID, int cID, int sex){
 		Random rand = new Random();
 		this.age = rand.nextInt(50 - 18 + 1) + 18;
 		this.firstName = fName; this.lastName = lName;
-		this.rank = 0; this.skill = 0;
+		this.rank = 0; 
+		this.engSkill = 0; this.fightSkill = 0; this.helmSkill = 0; 
 		this.shipID = sID; this.crewID = cID;
 		this.morale = 0; this.gender = sex;
 	}
-	
+
 	public void printAllMemberInfo(){
 		System.out.println("Crew ID: " + this.crewID + ", " + getFirstName() + " " + getLastName());
 		System.out.println("Gender: " + this.getSexAsString() + ", Age: " + this.age);
 		System.out.println("Rank: " + this.getRankAsString());
 		System.out.println("Crewmember serves duties onboard ship id: " + getShipID()); // it will say position instead of crew member later, also fabulous will become 'wrecked' at some point if the ship is knackered etc
-		
+
 	}
-	
+
 	public void setShipID(int shipID) {
 		// if statement against ships, to make sure the target ship is actually in the list of ships 
 		this.shipID = shipID;
 	}
-	
+
 	public int getShipID() {
 		return this.shipID;
 	}
-	
+
 	public int getMorale() {
 		return morale;
 	}
@@ -60,7 +64,7 @@ public class Member {
 		}
 		return success;
 	}
-	
+
 	public boolean lowerMorale(int by) {
 		boolean success = false;
 		if((this.morale - by) <= -49){
@@ -73,38 +77,83 @@ public class Member {
 		return success;
 	}
 
-	public int getSkill() {
-		return this.skill;
+	public int getSkill(int skillType) {
+		int skill;
+		switch(skillType){
+		case 0:
+			skill = this.engSkill;
+			break;
+		case 1:
+			skill = this.fightSkill;
+			break;
+		case 2:
+			skill = this.helmSkill;
+			break;
+		default:
+			skill = -99; // If this is returned, the caller should know what to do.
+			break;
+		}
+		return skill;
 	}
 
-	public boolean improveSkill() {
-		// If less than max skill, improves skill and returns true
+	public boolean improveSkill(int skillType) { // If less than max skill, improves skill and returns true
 		boolean success = false;
-		if(this.skill < 100){
-			this.skill = skill++;
-			success = true;
-		} 
-		return success;
-	}
-	
-	public boolean reduceSkill() {
-		// If more than min skill, decreases kill and returns true
-		boolean success = false;
-		if(this.skill > -20){
-			this.skill = skill--;
-			success = true;
-		} 
+		switch(skillType){
+		case 0:
+			if(this.engSkill < 100){
+				this.engSkill = engSkill++;
+				success = true;
+			}
+			break;
+		case 1:
+			if(this.fightSkill < 100){
+				this.fightSkill = fightSkill++;
+				success = true;
+			}
+			break;
+		case 2:
+			if(this.helmSkill < 100){
+				this.helmSkill = helmSkill++;
+				success = true;
+			}
+			break;
+		}
 		return success;
 	}
 
+	public boolean reduceSkill(int skillType) {
+		boolean success = false;
+		switch(skillType){
+		case 0:
+			if(this.engSkill > -20){
+				this.engSkill = engSkill--;
+				success = true;
+			}
+			break;
+		case 1:
+			if(this.fightSkill > -20){
+				this.fightSkill = fightSkill--;
+				success = true;
+			}
+			break;
+		case 2:
+			if(this.helmSkill > -20){
+				this.helmSkill = helmSkill--;
+				success = true;
+			}
+			break;
+		}
+		return success;
+	}
+		
 	public String getFirstName() {
 		return this.firstName;
 	}
-	
+
 	public String getLastName() {
 		return this.lastName;
 	}
-	
+
 	public int getGender() {
 		return this.gender;
 	}
@@ -112,7 +161,7 @@ public class Member {
 	public int getRank(){
 		return this.rank;
 	}
-	
+
 	public int getCrewID(){
 		return this.crewID;
 	}
@@ -132,16 +181,16 @@ public class Member {
 			this.gender = 0;
 		}		
 	}
-	
+
 	public boolean promote(){
 		boolean success = false;
 		if(rank < 4){
-		rank++;
-		success = true;
+			rank++;
+			success = true;
 		}
 		return success;
 	}
-	
+
 	public boolean demote(){
 		boolean success = false;
 		if(rank > 0){
@@ -150,36 +199,36 @@ public class Member {
 		}
 		return success;
 	}
-	
+
 	// DEV & TESTING METHODS BELOW
-	
+
 	public String getRankAsString(){
 		String rankString = "";
 		switch (rank) {
-			case 0: rankString = "private";
-					break;
-			case 1: rankString = "corporal";
-					break;
-			case 2: rankString = "sergeant";
-					break;
-			case 3: rankString = "brigadier";
+		case 0: rankString = "private";
+		break;
+		case 1: rankString = "corporal";
+		break;
+		case 2: rankString = "sergeant";
+		break;
+		case 3: rankString = "brigadier";
 		}
-		
-		
+
+
 		return rankString;
 	}
-	
+
 	public String getSexAsString(){
 		String sex = "";
 		switch (gender) {
-			case 0: 	sex = "male";
-						break;
-			case 1: 	sex = "female";
-						break;
-			default:	sex = "gender ambiguous";
-						break;
+		case 0: 	sex = "male";
+		break;
+		case 1: 	sex = "female";
+		break;
+		default:	sex = "gender ambiguous";
+		break;
 		}
 		return sex;	
 	}
-	
+
 }
