@@ -10,16 +10,16 @@ import tools.Coordinate;
  */
 
 public class Ship {
-	
+
 	int shipID, availableCoolant;
 	boolean isShipOn;
 	Coordinate location;
 	Weapon shipWeapon;
 	Reactor shipReactor;
 	public String shipName;
-	
+
 	public Ship(int id, String name, Coordinate loc) {
-		
+
 		shipWeapon = new Weapon(id);
 		shipReactor = new Reactor(id);
 		availableCoolant = 100;
@@ -27,8 +27,91 @@ public class Ship {
 		shipID = id;
 		shipName = name;
 
+	}	
+
+	public boolean togglePower(){ // Turning ship on enables auxiliary power.
+		boolean success = false;
+		if(isShipOn){
+			boolean checkout = shipReactor.decreaseUsage(5);
+			if(checkout){
+				isShipOn = false;
+				success = true;
+			}
+		} else {
+			boolean checkout = shipReactor.increaseUsage(5);
+			if(checkout){ // if the power is off, the ship is less likely to be detected
+						  // if ship heat average is under 20, it is even less likely
+				isShipOn = true;
+				success = true;
+			}
+		}
+		return success;
 	}
-	
+
+	public boolean isShipOn(){ // checks if ship is actually powered.
+		return isShipOn;
+	}
+
+	public String getShipName() {
+		return shipName;
+	}
+
+	public void setShipName(String shipName) {
+		this.shipName = shipName;
+	}
+
+	public Coordinate getLocation(){
+		return this.location;
+	}
+
+	public void setLocation(Coordinate location) {
+		this.location = location;
+	}
+
+	public int getAvailableCoolant(){
+		return this.availableCoolant;
+	}
+
+	public boolean canReleaseCoolant(){
+		boolean canRelease = false;
+		if(getAvailableCoolant() > 0){
+			canRelease = true;
+		}
+		return canRelease;
+	}
+
+	public boolean canReceiveCoolant(){
+		boolean canReceive = false;
+		if(getAvailableCoolant() < 100){
+			canReceive = true;
+		}
+		return canReceive;
+	}
+
+	public boolean releaseCoolant(){
+		boolean success = false; 
+		if(canReleaseCoolant()){
+			availableCoolant = availableCoolant - 5; 
+			success =  true;
+		}
+		return success;
+	}
+
+	public boolean receiveCoolant(){
+		boolean success = false; 
+		if(canReceiveCoolant()){
+			availableCoolant = availableCoolant + 5;
+			success =  true;
+		}
+		return success;
+	}
+
+	public int getShipID(){
+		return this.shipID;
+	}
+
+	// DEBUG AND TESTING METHODS
+
 	public void printAllShipInfo(){
 		System.out.println();
 		System.out.println("Name: " + getShipName());
@@ -45,83 +128,6 @@ public class Ship {
 		System.out.println("-- WEAPON INFO --");
 		System.out.println("Weapon status: " + shipWeapon.getWeaponStatus());
 		System.out.println("Weapon configuration: " + shipWeapon.getWeaponConfiguration());
-		
-		
-	}
-	
-	public boolean togglePower(){
-		boolean success = false;
-		if(isShipOn){
-			isShipOn = false;
-			success = true;
-		} else {
-			isShipOn = true;
-			success = true;
-		}
-		return success;
-	}
-	
-	public boolean isShipOn(){
-		return isShipOn;
-		
-	}
-	
-	public String getShipName() {
-		return shipName;
 	}
 
-	public void setShipName(String shipName) {
-		this.shipName = shipName;
-	}
-
-	public Coordinate getLocation(){
-		return this.location;
-	}
-	
-	public void setLocation(Coordinate location) {
-		this.location = location;
-	}
-
-	public int getAvailableCoolant(){
-		return this.availableCoolant;
-	}
-	
-	public boolean canReleaseCoolant(){
-		boolean canRelease = false;
-		if(getAvailableCoolant() > 0){
-			canRelease = true;
-		}
-		return canRelease;
-	}
-	
-	public boolean canReceiveCoolant(){
-		boolean canReceive = false;
-		if(getAvailableCoolant() < 100){
-			canReceive = true;
-		}
-		return canReceive;
-	}
-	
-	public boolean releaseCoolant(){
-		boolean success = false; 
-		if(canReleaseCoolant()){
-			availableCoolant = availableCoolant - 5; 
-			success =  true;
-		}
-		return success;
-	}
-	
-	public boolean receiveCoolant(){
-		boolean success = false; 
-		if(canReceiveCoolant()){
-			availableCoolant = availableCoolant + 5;
-			success =  true;
-		}
-		return success;
-	}
-	
-	public int getShipID(){
-		return this.shipID;
-	}
-	
 }
