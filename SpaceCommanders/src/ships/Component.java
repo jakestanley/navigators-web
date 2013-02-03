@@ -12,11 +12,12 @@ package ships;
 
 public class Component {
 
+	int shipID;
 	float heat, heatConstant, health, coolant;
 	
-	public Component(){
+	public Component(int id){
 		this.heat = 0; this.heatConstant = 0;
-		this.health = 100;
+		this.health = 100; this.shipID = id;
 	}
 	
 	public void setDamage(float damage) {

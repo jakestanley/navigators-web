@@ -20,13 +20,33 @@ public class Ship {
 	
 	public Ship(int id, String name, Coordinate loc) {
 		
-		shipWeapon = new Weapon();
-		shipReactor = new Reactor();
+		shipWeapon = new Weapon(id);
+		shipReactor = new Reactor(id);
 		availableCoolant = 100;
 		location = loc;
 		shipID = id;
 		shipName = name;
 
+	}
+	
+	public void printAllShipInfo(){
+		System.out.println();
+		System.out.println("Name: " + getShipName());
+		System.out.println("Current coordinates: " + location.get3DCoordinateAsString());
+		System.out.println();
+		System.out.println("-- REACTOR INFO --");
+		System.out.println("Current output: " + shipReactor.getUsage() + "%.");
+		System.out.println("   DISTRIBUTION BREAKDOWN");
+		//System.out.println("Auxiliary: " + shipReactor.getDistribution(0) + "%.");
+		//System.out.println("Life support: " + shipReactor.getDistribution(1) + "%.");
+		//System.out.println("Engine: " + shipReactor.getDistribution(2) + "%.");
+		System.out.println("Weapon: " + shipWeapon.getPowerLevel() + "%.");
+		System.out.println();
+		System.out.println("-- WEAPON INFO --");
+		System.out.println("Weapon status: " + shipWeapon.getWeaponStatus());
+		System.out.println("Weapon configuration: " + shipWeapon.getWeaponConfiguration());
+		
+		
 	}
 	
 	public String getShipName() {
@@ -85,12 +105,6 @@ public class Ship {
 	
 	public int getShipID(){
 		return this.shipID;
-	}
-	
-	public void printAllShipInfo(){
-		System.out.println("Name: " + getShipName());
-		System.out.println("Location: " + location.get3DCoordinateAsString());
-		System.out.println(shipReactor.getUsage());
 	}
 	
 }

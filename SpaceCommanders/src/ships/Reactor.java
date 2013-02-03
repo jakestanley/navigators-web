@@ -18,115 +18,42 @@ public class Reactor extends Component{
 	
 	float usage, weaponDistribution, engineDistribution, lifeDistribution, auxDistribution;
 	
-	public Reactor(){
-		super();
-		this.usage = 0;
-		this.weaponDistribution = 0; 
-		this.engineDistribution = 0; 
-		this.lifeDistribution = 0; 
-		this.auxDistribution = 0;
-		
+	public Reactor(int shipID){
+		super(shipID);
+		this.usage = 0;		
 	}
 	
 	public float getUsage() {
-		System.out.println("Reactor at " + this.usage + "% capacity.");
 		return this.usage;
 	}
 	
-	public boolean canTakePower() {
-		boolean canTakePower = false;
-		if(getUsage() < 100){
-			canTakePower = true;
-		}
-		return canTakePower;
-	}
+	/** 
+	 * Only on returning true, will the method accessing the 
+	 * Reactor class update its values. That way Reactor usage 
+	 * should never be out of the 0.0 to 100.0 inclusive range. 
+	 * 
+	 * The same applies for the decreaseUsage() method.
+	 */
 	
-	public boolean canReturnPower() {
-		boolean canReturnPower = false;
-		if(getUsage() > 0){
-			canReturnPower = true;
-		}
-		return canReturnPower;
-	}
-
-	public void increaseUsage() {
-		if(this.usage < 100){
-			this.usage = this.usage + 5;
-		}
-	}
-	
-	public void decreaseUsage(){
-		if(this.usage > 0){
-			this.usage = this.usage - 5;
-		}
-	}
-	
-	public float getDistribution(int type) {
-		float dist = (Float) null;
-		if(type == 0){
-			dist = this.auxDistribution;
-		}
-		if(type == 1){
-			dist = this.lifeDistribution;
-		}
-		if(type == 2){
-			dist = this.engineDistribution;
-		}
-		if(type == 3){
-			dist = this.weaponDistribution;
-		}
-		return dist;
-	}
-	
-	public boolean increaseDistribution(int type) {
+	public boolean increaseUsage(float request) {
 		boolean success = false;
-		if(canTakePower()){
-			if(type == 0){
-				// should never be used, auxiliary power is fixed
-				this.auxDistribution = this.auxDistribution + 5;
-				success = true;
-			} else if(type == 1){
-				this.lifeDistribution = this.lifeDistribution + 5;
-				success = true;
-			} else if(type == 2){
-				this.engineDistribution = this.engineDistribution + 5;
-				success = true;
-			} else if(type == 3){
-				this.weaponDistribution = this.weaponDistribution + 5;
-				success = true;
-			}
-			if(success == true){
-				this.increaseUsage();
-			}
+		if((this.usage + request) > 100){
+			// Do nothing for now... TODO
 		} else {
-			System.out.println("Power output is " + getUsage() + "%. Reduce power usage elsewhere first.");
+			this.usage = this.usage + request;
+			success = true;
 		}
 		return success;
+		
 	}
-
-	public boolean decreaseDistribution(int type) {
+	
+	public boolean decreaseUsage(float request){
 		boolean success = false;
-		if(canReturnPower()){
-			if(type == 0){
-				// should never be used, auxiliary power is fixed
-				// should only be changed by for enabling/disabling aux power
-				this.auxDistribution = this.auxDistribution - 5;
-				success = true;
-			} else if(type == 1){
-				this.lifeDistribution = this.lifeDistribution - 5;
-				success = true;
-			} else if(type == 2){
-				this.engineDistribution = this.engineDistribution - 5;
-				success = true;
-			} else if(type == 3){
-				this.weaponDistribution = this.weaponDistribution - 5;
-				success = true;
-			}
-			if(success == true){
-				this.decreaseUsage();
-			}
+		if((this.usage - request) < 0){
+			// Do nothing for now... TODO
 		} else {
-			System.out.println("Reactor at " + getUsage() + "% capacity.");
+			this.usage = this.usage - request;
+			success = true;
 		}
 		return success;
 	}
