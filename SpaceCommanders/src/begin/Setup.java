@@ -16,15 +16,7 @@ public class Setup {
 	public ArrayList<Member> crewList = new ArrayList<Member>();
 
 	public Setup(boolean test){
-		if(test == true){
-			
-			Random rand = new Random();
-			System.out.println("Oh shit son here come some random numbers...");
-			System.out.println("");
-			for(int i = 0; i < 20; i++){
-			System.out.print((rand.nextInt(50 - 18 + 1) + 18) + " ");
-			}
-			
+		if(test == true){	
 			
 			shipList.add(shipIndex, new Ship(shipIndex, "Interstellar 5555", new Coordinate(0, 0, 0)));
 			shipList.get(shipIndex).printAllShipInfo();
@@ -46,7 +38,8 @@ public class Setup {
 			crewList.get(crewIndex).promote();
 			crewList.get(crewIndex).printAllMemberInfo();
 			crewIndex++;
-			crewList.add(crewIndex, new Member("Lisa", "Eastwood", shipIndex, crewIndex, 1));
+			crewList.add(crewIndex, new Member("Jon", "Sterling", shipIndex, crewIndex, 0));
+			crewList.get(crewIndex).promote();
 			crewList.get(crewIndex).printAllMemberInfo();
 			crewIndex++;
 			crewList.add(crewIndex, new Member("Alex", "Stanley", shipIndex, crewIndex, 0));
