@@ -12,10 +12,10 @@ import tools.Coordinate;
 public class Ship {
 	
 	int shipID, availableCoolant;
+	boolean isShipOn;
 	Coordinate location;
 	Weapon shipWeapon;
 	Reactor shipReactor;
-	
 	public String shipName;
 	
 	public Ship(int id, String name, Coordinate loc) {
@@ -46,6 +46,23 @@ public class Ship {
 		System.out.println("Weapon status: " + shipWeapon.getWeaponStatus());
 		System.out.println("Weapon configuration: " + shipWeapon.getWeaponConfiguration());
 		
+		
+	}
+	
+	public boolean togglePower(){
+		boolean success = false;
+		if(isShipOn){
+			isShipOn = false;
+			success = true;
+		} else {
+			isShipOn = true;
+			success = true;
+		}
+		return success;
+	}
+	
+	public boolean isShipOn(){
+		return isShipOn;
 		
 	}
 	

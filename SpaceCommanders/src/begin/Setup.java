@@ -49,9 +49,6 @@ public class Setup {
 			crewList.get(crewIndex).printAllMemberInfo();
 			crewIndex++;
 			
-			
-			
-			
 			shipIndex++; // only increment shipIndex after generating starting crew, otherwise your crew will be assigned to a different ship!!
 			
 			
