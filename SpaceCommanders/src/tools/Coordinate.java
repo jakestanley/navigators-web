@@ -49,4 +49,16 @@ public class Coordinate {
 		return this.pointZ;
 	}
 	
+	public String get2DCoordinateAsString(){
+		String coordString;
+		coordString = (getX() + ", " + getY());
+		return coordString;
+	}
+	
+	public String get3DCoordinateAsString(){
+		String coordString;
+		coordString = (getX() + ", " + getY() + ", " + getZ());
+		return coordString;
+	}
+	
 }
