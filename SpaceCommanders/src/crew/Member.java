@@ -1,9 +1,14 @@
 package crew;
 
+import java.util.Random;
+
+import begin.Game;
+
 /**
  * All crew member types inherit from this class.
  * Genders: 0 = male, 1 = female
  * Rank: 0 = private, 1 = corporal, 2 = sergeant, 3 = captain, 4 = brigadier
+ * Instead of creating separate classes, I'll just have type.
  * Crew ID will be a pseudo primary key. It cannot be changed.
  * ShipID can be changed if a crew member defers.
  * High skill crew member is more likely to defer at low morale.
@@ -11,14 +16,24 @@ package crew;
 
 public class Member {
 	
-	int rank, shipID, crewID, skill, gender, morale;
+	int rank, shipID, crewID, skill, gender, morale, age;
 	String firstName, lastName;
 	
 	public Member(String fName, String lName, int sID, int cID, int sex){
+		Random rand = new Random();
+		this.age = rand.nextInt(50 - 18 + 1) + 18;
 		this.firstName = fName; this.lastName = lName;
 		this.rank = 0; this.skill = 0;
 		this.shipID = sID; this.crewID = cID;
 		this.morale = 0; this.gender = sex;
+	}
+	
+	public void printAllMemberInfo(){
+		System.out.println("Crew ID: " + this.crewID + ", " + getFirstName() + " " + getLastName());
+		System.out.println("Gender: " + this.getSexAsString() + ", Age: " + this.age);
+		System.out.println("Rank: " + this.getRankAsString());
+		System.out.println("Crewmember serves duties onboard ship id: " + getShipID()); // it will say position instead of crew member later, also fabulous will become 'wrecked' at some point if the ship is knackered etc
+		
 	}
 	
 	public void setShipID(int shipID) {
@@ -134,6 +149,37 @@ public class Member {
 			success = true;
 		}
 		return success;
+	}
+	
+	// DEV & TESTING METHODS BELOW
+	
+	public String getRankAsString(){
+		String rankString = "";
+		switch (rank) {
+			case 0: rankString = "private";
+					break;
+			case 1: rankString = "corporal";
+					break;
+			case 2: rankString = "sergeant";
+					break;
+			case 3: rankString = "brigadier";
+		}
+		
+		
+		return rankString;
+	}
+	
+	public String getSexAsString(){
+		String sex = "";
+		switch (gender) {
+			case 0: 	sex = "male";
+						break;
+			case 1: 	sex = "female";
+						break;
+			default:	sex = "gender ambiguous";
+						break;
+		}
+		return sex;	
 	}
 	
 }

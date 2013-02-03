@@ -16,7 +16,7 @@ public class Ship {
 	Weapon shipWeapon;
 	Reactor shipReactor;
 	
-	String shipName;
+	public String shipName;
 	
 	public Ship(int id, String name, Coordinate loc) {
 		
@@ -37,9 +37,9 @@ public class Ship {
 		System.out.println("-- REACTOR INFO --");
 		System.out.println("Current output: " + shipReactor.getUsage() + "%.");
 		System.out.println("   DISTRIBUTION BREAKDOWN");
-		//System.out.println("Auxiliary: " + shipReactor.getDistribution(0) + "%.");
-		//System.out.println("Life support: " + shipReactor.getDistribution(1) + "%.");
-		//System.out.println("Engine: " + shipReactor.getDistribution(2) + "%.");
+		//System.out.println("Auxiliary: " + shipReactor.getDistribution(0) + "%."); NEED TO MAKE THESE
+		//System.out.println("Life support: " + shipReactor.getDistribution(1) + "%."); NEED TO MAKE THESE
+		//System.out.println("Engine: " + shipReactor.getDistribution(2) + "%."); NEED TO MAKE THESE
 		System.out.println("Weapon: " + shipWeapon.getPowerLevel() + "%.");
 		System.out.println();
 		System.out.println("-- WEAPON INFO --");
