@@ -17,17 +17,23 @@ public class Ship {
 	Weapon shipWeapon;
 	Reactor shipReactor;
 	public String shipName;
+	float shipHealth; // this is a temp testing variable
 
 	public Ship(int id, String name, Coordinate loc) {
 
 		shipWeapon = new Weapon(id);
 		shipReactor = new Reactor(id);
 		availableCoolant = 100;
+		shipHealth = 100;
 		location = loc;
 		shipID = id;
 		shipName = name;
 
 	}	
+	
+	public void firedAt(float damage){ // temp method, please refine....
+		shipHealth = shipHealth - damage;
+	}
 
 	public boolean togglePower(){ // Turning ship on enables auxiliary power.
 		boolean success = false;
