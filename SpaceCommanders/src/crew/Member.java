@@ -18,7 +18,7 @@ public class Member {
 
 	// New skill types: 
 
-	int rank, shipID, crewID, gender, morale, age;
+	int rank, shipID, crewID, gender, morale, age, dest, where; 
 	int engSkill, fightSkill, helmSkill;
 	String firstName, lastName;
 
@@ -30,14 +30,6 @@ public class Member {
 		this.engSkill = 0; this.fightSkill = 0; this.helmSkill = 0; 
 		this.shipID = sID; this.crewID = cID;
 		this.morale = 0; this.gender = sex;
-	}
-
-	public void printAllMemberInfo(){
-		System.out.println("Crew ID: " + this.crewID + ", " + getFirstName() + " " + getLastName());
-		System.out.println("Gender: " + this.getSexAsString() + ", Age: " + this.age);
-		System.out.println("Rank: " + this.getRankAsString());
-		System.out.println("Crewmember serves duties onboard ship id: " + getShipID()); // it will say position instead of crew member later, also fabulous will become 'wrecked' at some point if the ship is knackered etc
-
 	}
 
 	public void setShipID(int shipID) {
@@ -229,6 +221,14 @@ public class Member {
 		break;
 		}
 		return sex;	
+	}
+	
+	public void printAllMemberInfo(){
+		System.out.println("Crew ID: " + this.crewID + ", " + getFirstName() + " " + getLastName());
+		System.out.println("Gender: " + this.getSexAsString() + ", Age: " + this.age);
+		System.out.println("Rank: " + this.getRankAsString());
+		System.out.println("Crewmember serves duties onboard ship id: " + getShipID()); // it will say position instead of crew member later, also fabulous will become 'wrecked' at some point if the ship is knackered etc
+
 	}
 
 }
