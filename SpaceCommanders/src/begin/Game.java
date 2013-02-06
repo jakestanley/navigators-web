@@ -25,7 +25,10 @@ public class Game extends BasicGame{
 			
 		AppGameContainer game = new AppGameContainer(new Game("Space Commanders"));
 		game.setDisplayMode(800, 600, false);
+		game.setTargetFrameRate(60);
 		game.start();
+		
+		// build the client into the game. make the server separate
 		
 		//setupGame();
 		//startGame();
@@ -41,7 +44,7 @@ public class Game extends BasicGame{
 	@Override
 	public void init(GameContainer gc) throws SlickException {
 		// TODO Auto-generated method stub
-		setup = new Setup(true);
+		setup = new Setup(0, true);
 	}
 
 	@Override
