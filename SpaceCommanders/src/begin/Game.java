@@ -1,6 +1,6 @@
 package begin;
 
-import java.util.ArrayList;
+import java.io.IOException;
 
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
@@ -8,10 +8,6 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 
-import ships.Reactor;
-import ships.Ship;
-import ships.Weapon;
-import tools.Coordinate;
 
 public class Game extends BasicGame{
 	
@@ -44,7 +40,12 @@ public class Game extends BasicGame{
 	@Override
 	public void init(GameContainer gc) throws SlickException {
 		// TODO Auto-generated method stub
-		setup = new Setup(0, true);
+		try {
+			setup = new Setup(0);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
