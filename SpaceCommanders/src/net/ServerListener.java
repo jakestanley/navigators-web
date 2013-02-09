@@ -2,7 +2,6 @@ package net;
 
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
-import com.esotericsoftware.minlog.Log;
 
 import net.Packet.*;
 
@@ -25,6 +24,10 @@ public class ServerListener extends Listener {
 		} else if(o instanceof PacketMessage){
 			String message = ((PacketMessage)o).message;
 			System.out.println("User: " + message);
+		} else if(o instanceof PlayerPacket){
+			System.out.println("SERVER> Thanks for the PlayerPacket object");
+		} else {
+			System.out.println("SERVER> I'm not sure what you passed me there...");
 		}
 	}
 

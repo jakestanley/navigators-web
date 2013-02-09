@@ -4,13 +4,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import net.GameClient;
-import net.Network;
 import net.GameServer;
 
 import crew.Member;
 
 import ships.Ship;
-import tools.Coordinate;
 
 public class Setup {
 	
@@ -28,7 +26,7 @@ public class Setup {
 		case 0:
 			System.out.println("Running Single Player Server");
 			server = new GameServer();
-			client = new GameClient();
+			client = new GameClient(new Player("Jake", "Thunderchild"));
 			
 			break;
 		case 1:

@@ -23,6 +23,7 @@ public class GameServer {
 		kryo.register(PacketLoginRequest.class);
 		kryo.register(PacketLoginAnswer.class);
 		kryo.register(PacketMessage.class);
+		kryo.register(PlayerPacket.class);
 	}
 }
 

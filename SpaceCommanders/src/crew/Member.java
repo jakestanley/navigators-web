@@ -2,8 +2,6 @@ package crew;
 
 import java.util.Random;
 
-import begin.Game;
-
 /**
  * All crew member types inherit from this class.
  * Genders: 0 = male, 1 = female

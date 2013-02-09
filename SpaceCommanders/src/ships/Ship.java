@@ -1,6 +1,5 @@
 package ships;
 
-import begin.Game;
 import tools.Coordinate;
 
 /**
