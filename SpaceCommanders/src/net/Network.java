@@ -2,7 +2,7 @@ package net;
 
 public class Network {
 
-	static public int port = 1337;
+	static public int port = 4321;
 	
 	public int getPort(){
 		return port;

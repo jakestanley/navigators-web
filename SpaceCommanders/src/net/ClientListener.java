@@ -13,7 +13,8 @@ import com.esotericsoftware.kryonet.Listener;
 public class ClientListener extends Listener {
 
 	Client client;
-	Scanner scanner;
+	Scanner scanner = new Scanner(System.in);
+	
 	
 	public ClientListener(Client c) {
 		client = c;
@@ -32,30 +33,6 @@ public class ClientListener extends Listener {
 			if(((PacketLoginAnswer) o).accepted = true){
 			System.out.println("CLIENT> Connected.");
 				scanner = new Scanner(System.in);
-				
-				
-				
-				while(true){
-					if(Game.setup.client.scanner.hasNext()){
-						PacketMessage msg = new PacketMessage();
-						msg.message = Game.setup.client.scanner.nextLine();
-						client.sendTCP(msg);
-					}
-				}
-				
-				
-				/*
-				
-				
-				try {
-					client.sendTCP(new PlayerPacket(Game.setup.client.player.getNickname(), Game.setup.client.player.getShipName()));
-				} catch (Exception e){
-					System.out.println("CLIENT> I had trouble passing a Player object");
-					e.printStackTrace();
-				}
-				
-				*/
-				
 			} else {
 				System.out.println("CLIENT> Client login request denied.");
 				c.close();
@@ -63,6 +40,9 @@ public class ClientListener extends Listener {
 		} else if(o instanceof PacketMessage){
 			String message = ((PacketMessage)o).message;
 			System.out.println("User: " + message);
+		} else if(o instanceof ShipIDPacket){
+			Game.setup.client.player.setShipID(((ShipIDPacket) o).id);
+			System.out.println("CLIENT> Received ship id " + Game.setup.client.player.getShipID());
 		}
 	}
 

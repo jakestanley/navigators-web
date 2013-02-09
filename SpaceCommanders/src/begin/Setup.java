@@ -13,7 +13,7 @@ import ships.Ship;
 public class Setup {
 	
 	public GameClient client;
-	GameServer server;
+	public GameServer server;
 
 	int shipIndex = 0;
 	int crewIndex = 0;

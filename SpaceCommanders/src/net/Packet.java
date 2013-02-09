@@ -18,12 +18,11 @@ public class Packet {
 		
 		String nickname;
 		String shipName;
-		public PlayerPacket(String arg0, String arg1){
-			
-			nickname = arg0;
-			shipName = arg1;
-			
-		}
+		
+	}
+	
+	public static class ShipIDPacket {
+		int id;
 	}
 
 }

@@ -1,10 +1,13 @@
 package net;
 
 import java.io.IOException;
-import java.util.Scanner;
+
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
 
 import net.Packet.*;
 
+import begin.Game;
 import begin.Player;
 
 import com.esotericsoftware.kryo.Kryo;
@@ -14,22 +17,21 @@ import com.esotericsoftware.minlog.Log;
 public class GameClient {
 	
 	public Client client;
-	public Scanner scanner;
 	public String host = "";
 	public Player player;
 	public ClientListener listener;
+	PacketTranslator pt = new PacketTranslator();
 	
 	public GameClient(Player p) {
 		player = p;
 		Log.set(Log.LEVEL_DEBUG);
-		scanner = new Scanner(System.in);
 		client = new Client();
 		registerPackets();
 		listener = new ClientListener(client);
 		client.addListener(listener);
 		client.start();
 		connectToServer();
-			
+		client.sendTCP(pt.playerToPacket(player));
 	}
 	
 	private void connectToServer(){
@@ -51,6 +53,7 @@ public class GameClient {
 		kryo.register(PacketLoginAnswer.class);
 		kryo.register(PacketMessage.class);
 		kryo.register(PlayerPacket.class);
+		kryo.register(ShipIDPacket.class);
 	}
 
 }

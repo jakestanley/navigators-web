@@ -12,7 +12,6 @@ import org.newdawn.slick.SlickException;
 public class Game extends BasicGame{
 	
 	public static Setup setup;
-	
 	public Game(String title) {
 		super("Space Commanders");
 	}
@@ -27,7 +26,7 @@ public class Game extends BasicGame{
 	}
 	
 	@Override
-	public void render(GameContainer gc, Graphics arg1) throws SlickException {
+	public void render(GameContainer gc, Graphics g) throws SlickException {
 		// TODO Auto-generated method stub
 		
 	}
@@ -49,4 +48,5 @@ public class Game extends BasicGame{
 	public void update(GameContainer gc, int delta) throws SlickException {
 		// TODO Auto-generated method stub
 	}
+	
 }

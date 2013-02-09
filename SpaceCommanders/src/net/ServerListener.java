@@ -1,11 +1,18 @@
 package net;
 
+import begin.Game;
+import begin.Player;
+
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
 
 import net.Packet.*;
+import net.Packet.PlayerPacket;
+import net.PacketTranslator;
 
 public class ServerListener extends Listener {
+	
+	PacketTranslator pt = new PacketTranslator();
 
 	public void connected(Connection arg0){
 		System.out.println("SERVER> A client has connected.");
@@ -26,9 +33,10 @@ public class ServerListener extends Listener {
 			System.out.println("User: " + message);
 		} else if(o instanceof PlayerPacket){
 			System.out.println("SERVER> Thanks for the PlayerPacket object");
-		} else {
-			System.out.println("SERVER> I'm not sure what you passed me there...");
+			Player player = pt.packetToPlayer((PlayerPacket) o);
+			System.out.println("SERVER> " + player.getNickname() + " connected. " +
+					"He is the commander of the good ship " + player.getShipName());
+			c.sendTCP(pt.idToPacket(Game.setup.server.assignShipID((PlayerPacket) o)));
 		}
 	}
-
 }
