@@ -9,11 +9,11 @@ import net.Packet.*;
 public class ServerListener extends Listener {
 
 	public void connected(Connection arg0){
-		Log.info("SERVER> A client has connected.");
+		System.out.println("SERVER> A client has connected.");
 	}
 	
 	public void disconnected(Connection arg0){
-		Log.info("SERVER> A client has disconnected.");
+		System.out.println("SERVER> A client has disconnected.");
 	}
 	
 	public void received(Connection c, Object o){

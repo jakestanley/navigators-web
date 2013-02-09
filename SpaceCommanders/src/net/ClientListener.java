@@ -21,12 +21,12 @@ public class ClientListener extends Listener {
 		client = c;
 	}
 	public void connected(Connection arg0){
-		Log.info("CLIENT> Connected.");
+		System.out.println("CLIENT> Connected.");
 		client.sendTCP(new PacketLoginRequest());
 	}
 	
 	public void disconnected(Connection arg0){
-		Log.info("CLIENT> Disconnected.");
+		System.out.println("CLIENT> Disconnected.");
 	}
 	
 	public void received(Connection c, Object o){
