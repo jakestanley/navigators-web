@@ -33,15 +33,12 @@ public class Game extends BasicGame{
 	@Override
 	public void render(GameContainer gc, Graphics g) throws SlickException {
 		// TODO Auto-generated method stub
-		g.drawString(setup.client.getClientStatus(), 100, 100);
+		
 	}
 
 	@Override
 	public void init(GameContainer gc) throws SlickException {
 		// TODO Auto-generated method stub
-		
-		
-		
 	}
 
 	@Override
