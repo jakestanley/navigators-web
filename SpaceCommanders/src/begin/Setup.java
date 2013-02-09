@@ -40,7 +40,7 @@ public class Setup {
 			break;
 		case 3: 
 			System.out.println("Running Connect To Multiplayer Session");
-			// do
+			client = new GameClient(new Player("Jamie", "Johnny Five"));
 			break;
 		}
 		
