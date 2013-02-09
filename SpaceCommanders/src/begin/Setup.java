@@ -3,12 +3,19 @@ package begin;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import net.GameClient;
+import net.Network;
+import net.GameServer;
+
 import crew.Member;
 
 import ships.Ship;
 import tools.Coordinate;
 
 public class Setup {
+	
+	public GameClient client;
+	GameServer server;
 
 	int shipIndex = 0;
 	int crewIndex = 0;
@@ -20,6 +27,9 @@ public class Setup {
 		switch(mode){
 		case 0:
 			System.out.println("Running Single Player Server");
+			server = new GameServer();
+			client = new GameClient();
+			
 			break;
 		case 1:
 			System.out.println("Running Multiplayer Listen Server");
@@ -39,6 +49,8 @@ public class Setup {
 		
 	
 	}
+	
+	/*
 	
 	public void setupTestData(){
 		shipList.add(shipIndex, new Ship(shipIndex, "Thunderchild", new Coordinate(0, 0, 0)));
@@ -75,6 +87,9 @@ public class Setup {
 		shipIndex++; // only increment shipIndex after generating starting crew, otherwise your crew will be assigned to a different ship!!
 
 	}
+	
+	
+	*/
 	
 }
 

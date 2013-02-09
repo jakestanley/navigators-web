@@ -24,11 +24,6 @@ public class Game extends BasicGame{
 		game.setTargetFrameRate(60);
 		game.start();
 		
-		// build the client into the game. make the server separate
-		
-		//setupGame();
-		//startGame();
-		
 	}
 	
 	@Override
@@ -40,12 +35,14 @@ public class Game extends BasicGame{
 	@Override
 	public void init(GameContainer gc) throws SlickException {
 		// TODO Auto-generated method stub
+		
 		try {
 			setup = new Setup(0);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
 
 	@Override
