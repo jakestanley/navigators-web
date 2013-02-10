@@ -11,7 +11,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 public class MainMenuState extends BasicGameState {
 
-	String gameTitleLabel = "Space Commanders.";;
+	String gameTitleLabel = "Space Commanders.";
 	String joinGameOption = "Join Game.";
 	String hostGameOption = "Host Game.";
 	String hostDedGameOption = "Host Dedicated Game.";
@@ -19,8 +19,10 @@ public class MainMenuState extends BasicGameState {
 	String mousePosition = "No mouse input";
 	String mouseClickedOn = "No mouse clicks yet";
 	
+	int stateID;
+	
 	public MainMenuState(int state) {
-
+		stateID = state;
 	}
 
 	@Override
@@ -62,9 +64,11 @@ public class MainMenuState extends BasicGameState {
 		if(Mouse.isButtonDown(Input.MOUSE_LEFT_BUTTON)){
 			if(xPos >= 45 && xPos <= 150 && yPos >= 355 && yPos <= 385){
 				mouseClickedOn = "Clicked on " + joinGameOption;
+				sbg.enterState(1);
 			} else 
 			if(xPos >= 45 && xPos <= 150 && yPos >= 305 && yPos <= 335) {
 				mouseClickedOn = "Clicked on " + hostGameOption;
+				sbg.enterState(1);
 			} else 
 			if(xPos >= 45 && xPos <= 235 && yPos >= 255 && yPos <= 285) {
 					mouseClickedOn = "Clicked on " + hostDedGameOption;
@@ -82,7 +86,7 @@ public class MainMenuState extends BasicGameState {
 	@Override
 	public int getID() {
 		// TODO Auto-generated method stub
-		return 0;
+		return stateID;
 	}
 
 }
