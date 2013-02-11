@@ -2,35 +2,61 @@ package begin;
 
 import java.io.IOException;
 
+import net.GameClient;
+import net.GameServer;
+
 import org.newdawn.slick.AppGameContainer;
-import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
+import states.DedicatedServerState;
+import states.HostClientState;
 import states.MainMenuState;
-import states.GameClientState;
+import states.JoinClientState;
+import states.SPClientState;
 
 public class Game extends StateBasedGame{
 
 	public static final String gameTitle = "Space Commanders";
 	public static final int menu = 0;
-	public static final int client = 1;
+	public static final int joinClient = 1;
+	public static final int hostClient = 2;
+	public static final int dedServer = 3;
+	public static final int spClient = 4;
+	
+	public GameServer server;
+	public GameClient client;
 
-	public static Setup setup;
 	public Game(String title) {
+		
 		super(gameTitle);
+		
+		// initialise, but don't start server
+		try {
+			server = new GameServer();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+				
+		// initialise, but don't start client
+		client = new GameClient(new Player("Jake", "Thunderchild"));
+		
 		this.addState(new MainMenuState(menu));
-		this.addState(new GameClientState(client));
+		this.addState(new JoinClientState(joinClient));
+		this.addState(new HostClientState(hostClient));
+		this.addState(new DedicatedServerState(dedServer));
+		this.addState(new SPClientState(spClient));
 	}
 
 	public void initStatesList(GameContainer gc) throws SlickException {
 
 		this.getState(menu).init(gc, this); // get states
-		this.getState(client).init(gc, this);
-		
-		
+		this.getState(joinClient).init(gc, this);
+		this.getState(hostClient).init(gc, this);
+		this.getState(dedServer).init(gc, this);
+		this.getState(spClient).init(gc, this);
 		
 		this.enterState(menu);
 		// takes id of a state - what do i want to show the user?
@@ -43,11 +69,6 @@ public class Game extends StateBasedGame{
 		gameWindow.setDisplayMode(720, 480, false); // last variable is whether game is full screen or not
 		gameWindow.setTargetFrameRate(60);
 		gameWindow.start();
-		try {
-			setup = new Setup(0);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		
+		
 	}
 }
