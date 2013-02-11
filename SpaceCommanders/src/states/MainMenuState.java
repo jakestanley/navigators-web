@@ -68,13 +68,15 @@ public class MainMenuState extends BasicGameState {
 			} else 
 			if(xPos >= 45 && xPos <= 150 && yPos >= 305 && yPos <= 335) {
 				mouseClickedOn = "Clicked on " + hostGameOption;
-				sbg.enterState(1);
+				sbg.enterState(2);
 			} else 
 			if(xPos >= 45 && xPos <= 235 && yPos >= 255 && yPos <= 285) {
 					mouseClickedOn = "Clicked on " + hostDedGameOption;
+					sbg.enterState(3);
 			} else
 			if(xPos >= 45 && xPos <= 180 && yPos >= 205 && yPos <= 235) {
 					mouseClickedOn = "Clicked on " + singlePlayerOption;
+					sbg.enterState(4);
 			} else {
 				mouseClickedOn = "Clicked on nothing.";
 			}
