@@ -50,6 +50,16 @@ public class GameClient {
 		}
 	}
 	
+	public String getConnectedStatus(){
+		String status = "";
+		if(client.isConnected()){
+			status = "Connected";
+		} else {
+			status = "Not connected";
+		}
+		return status;
+	}
+	
 	private void registerPackets(){
 		Kryo kryo = client.getKryo();
 		kryo.register(PacketLoginRequest.class);
