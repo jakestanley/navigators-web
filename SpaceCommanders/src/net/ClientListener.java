@@ -41,8 +41,8 @@ public class ClientListener extends Listener {
 			String message = ((PacketMessage)o).message;
 			System.out.println("User: " + message);
 		} else if(o instanceof ShipIDPacket){
-			Game.setup.client.player.setShipID(((ShipIDPacket) o).id);
-			System.out.println("CLIENT> Received ship id " + Game.setup.client.player.getShipID());
+			//Game.setup.client.player.setShipID(((ShipIDPacket) o).id);
+			//System.out.println("CLIENT> Received ship id " + Game.setup.client.player.getShipID());
 		}
 	}
 

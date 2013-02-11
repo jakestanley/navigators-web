@@ -36,7 +36,7 @@ public class ServerListener extends Listener {
 			Player player = pt.packetToPlayer((PlayerPacket) o);
 			System.out.println("SERVER> " + player.getNickname() + " connected. " +
 					"He is the commander of the good ship " + player.getShipName());
-			c.sendTCP(pt.idToPacket(Game.setup.server.assignShipID((PlayerPacket) o)));
+			//c.sendTCP(pt.idToPacket(Game.server.assignShipID((PlayerPacket) o)));
 		}
 	}
 }

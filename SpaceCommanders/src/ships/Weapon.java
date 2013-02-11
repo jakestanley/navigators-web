@@ -41,7 +41,7 @@ public class Weapon extends Component {
 		concentrate = -1;
 		chargeTime = -1;
 	}
-
+/*
 	public boolean setPowerLevel(float newPowerLevel){
 		// TODO check if this works properly. test vigorously.
 		boolean success = false;
@@ -49,14 +49,14 @@ public class Weapon extends Component {
 		if(newPowerLevel != powerLevel){
 			if(newPowerLevel > powerLevel){
 				float powerRequest = newPowerLevel - powerLevel;
-				checkout = Game.setup.shipList.get(shipID).shipReactor.increaseUsage(powerRequest);
+				//checkout = Game.setup.shipList.get(shipID).shipReactor.increaseUsage(powerRequest);
 				if(checkout){
 					powerLevel = newPowerLevel;
 					success = true;
 				}
 			} else {
 				float powerRequest = powerLevel - newPowerLevel;
-				checkout = Game.setup.shipList.get(shipID).shipReactor.decreaseUsage(powerRequest);
+				//checkout = Game.setup.shipList.get(shipID).shipReactor.decreaseUsage(powerRequest);
 				if(checkout){
 					powerLevel = newPowerLevel;
 					success = true;
@@ -68,7 +68,7 @@ public class Weapon extends Component {
 		}
 		return success;
 	}
-
+*/
 	public boolean setStrength(float strn){
 		boolean success = false;
 		if(strn >= 0 && strn <= 100){
@@ -108,7 +108,7 @@ public class Weapon extends Component {
 	public void fire(){
 		isCharged = false;
 		// random test against accuracy, then fire for damage range (10 for now)
-		Game.setup.shipList.get(targetedShip).firedAt(10);
+		//Game.setup.shipList.get(targetedShip).firedAt(10);
 		// TODO - manual weapon firing?
 	}
 
