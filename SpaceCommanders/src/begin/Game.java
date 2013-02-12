@@ -25,8 +25,8 @@ public class Game extends StateBasedGame{
 	public static final int dedServer = 3;
 	public static final int spClient = 4;
 	
-	public GameServer server;
-	public GameClient client;
+	public static GameServer server;
+	public static GameClient client;
 
 	public Game(String title) {
 		

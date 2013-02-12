@@ -30,7 +30,14 @@ public class GameServer {
 		registerPackets();
 		server.addListener(new ServerListener());
 		server.bind(Network.port);
+	}
+	
+	public void startServer(){
 		server.start();
+	}
+	
+	public void stopServer(){
+		server.stop();
 	}
 	
 	private void registerPackets(){ // Register classes in the right order.

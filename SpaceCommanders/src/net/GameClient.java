@@ -32,13 +32,16 @@ public class GameClient {
 		registerPackets();
 		listener = new ClientListener(client);
 		client.addListener(listener);
+		
+	}
+	
+	public void startClient(){
 		client.start();
 		connectToServer();
 		client.sendTCP(pt.playerToPacket(player));
 	}
 	
-	private void connectToServer(){
-		
+	public void connectToServer(){
 		try {
 			System.out.println("CLIENT> Trying to connect.");
 			client.connect(5000, host, Network.port); // need a keepalive so doesn't timeout
