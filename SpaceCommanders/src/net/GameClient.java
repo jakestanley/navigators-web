@@ -41,16 +41,19 @@ public class GameClient {
 		client.sendTCP(pt.playerToPacket(player));
 	}
 	
-	public void connectToServer(){
+	public boolean connectToServer(){
+		boolean success = false; 
 		try {
 			System.out.println("CLIENT> Trying to connect.");
 			client.connect(5000, host, Network.port); // need a keepalive so doesn't timeout
+			success = true;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			System.out.println("CLIENT> Couldn't connect.");
 			e.printStackTrace();
 			client.stop();
 		}
+		return success;
 	}
 	
 	public String getConnectedStatus(){

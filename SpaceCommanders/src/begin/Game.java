@@ -14,6 +14,7 @@ import states.DedicatedServerState;
 import states.HostClientState;
 import states.MainMenuState;
 import states.JoinClientState;
+import states.PlayState;
 import states.SPClientState;
 
 public class Game extends StateBasedGame{
@@ -24,6 +25,7 @@ public class Game extends StateBasedGame{
 	public static final int hostClient = 2;
 	public static final int dedServer = 3;
 	public static final int spClient = 4;
+	public static final int play = 5;
 	
 	public static boolean mouseClicked;
 	
@@ -54,6 +56,7 @@ public class Game extends StateBasedGame{
 		this.addState(new HostClientState(hostClient));
 		this.addState(new DedicatedServerState(dedServer));
 		this.addState(new SPClientState(spClient));
+		this.addState(new PlayState(play));
 	}
 
 	public void initStatesList(GameContainer gc) throws SlickException {
@@ -63,6 +66,7 @@ public class Game extends StateBasedGame{
 		this.getState(hostClient).init(gc, this);
 		this.getState(dedServer).init(gc, this);
 		this.getState(spClient).init(gc, this);
+		this.getState(play).init(gc, this);
 		
 		this.enterState(menu);
 		currentState = 0;

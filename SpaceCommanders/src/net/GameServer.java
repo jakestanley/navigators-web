@@ -22,10 +22,13 @@ public class GameServer {
 	public ArrayList<Member> crewList = new ArrayList<Member>();;
 	
 	int index = 0;
+	
+	public boolean serverStarted;
 
 	private Server server;
 	
 	public GameServer() throws IOException{
+		serverStarted = false;
 		server = new Server();
 		registerPackets();
 		server.addListener(new ServerListener());
@@ -33,8 +36,13 @@ public class GameServer {
 	}
 	
 	public void startServer(){
+		if(!serverStarted){
 		System.out.println("SERVER> Starting server.");
+		serverStarted = true;
 		server.start();
+		} else {
+			System.out.println("SERVER> Server is already running.");
+		}
 	}
 	
 	public void stopServer(){
