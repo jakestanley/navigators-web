@@ -25,12 +25,18 @@ public class Game extends StateBasedGame{
 	public static final int dedServer = 3;
 	public static final int spClient = 4;
 	
+	public static boolean mouseClicked;
+	
+	public static int currentState;
+	
 	public static GameServer server;
 	public static GameClient client;
 
 	public Game(String title) {
 		
 		super(gameTitle);
+		
+		mouseClicked = false;
 		
 		// initialise, but don't start server
 		try {
@@ -59,12 +65,13 @@ public class Game extends StateBasedGame{
 		this.getState(spClient).init(gc, this);
 		
 		this.enterState(menu);
+		currentState = 0;
 		// takes id of a state - what do i want to show the user?
 	}
 
 
 	public static void main(String[] args) throws SlickException {
-
+		
 		AppGameContainer gameWindow = new AppGameContainer(new Game(gameTitle));
 		gameWindow.setDisplayMode(720, 480, false); // last variable is whether game is full screen or not
 		gameWindow.setTargetFrameRate(60);

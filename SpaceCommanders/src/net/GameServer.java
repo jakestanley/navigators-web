@@ -33,6 +33,7 @@ public class GameServer {
 	}
 	
 	public void startServer(){
+		System.out.println("SERVER> Starting server.");
 		server.start();
 	}
 	

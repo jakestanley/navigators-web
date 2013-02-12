@@ -13,6 +13,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import begin.Game;
 import begin.Player;
 
 public class DedicatedServerState extends BasicGameState {
@@ -20,7 +21,7 @@ public class DedicatedServerState extends BasicGameState {
 	int stateID;
 	String mousePosition = "No mouse input";
 	String mouseClickedOn = "No mouse clicks yet";
-	
+	Input input;
 	
 	public DedicatedServerState(int state) {
 		stateID = state;
@@ -30,7 +31,7 @@ public class DedicatedServerState extends BasicGameState {
 	@Override
 	public void init(GameContainer gc, StateBasedGame sbg)
 			throws SlickException {
-		
+		input = gc.getInput();
 		// start GameClient from here
 		// TODO Auto-generated method stub
 		
@@ -59,9 +60,9 @@ public class DedicatedServerState extends BasicGameState {
 		int xPos = Mouse.getX();
 		int yPos = Mouse.getY();
 		mousePosition = ("Mouse position is: " +xPos + ", " + yPos);
-		if(Mouse.isButtonDown(Input.MOUSE_LEFT_BUTTON)){
+		if(input.isMousePressed(Input.MOUSE_LEFT_BUTTON)){
 			if(xPos >= 45 && xPos <= 145 && yPos >= 55 && yPos <= 85){
-				
+				Game.currentState = 0;
 				sbg.enterState(0);
 			} else {
 				
