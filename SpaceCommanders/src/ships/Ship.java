@@ -10,22 +10,22 @@ import tools.Coordinate;
 
 public class Ship {
 
-	int shipID, availableCoolant;
+	int sessionID, availableCoolant;
 	boolean isShipOn;
 	Coordinate location;
 	Weapon shipWeapon;
 	Reactor shipReactor;
-	public String shipName;
+	public String shipName, playerName;
 	float shipHealth; // this is a temp testing variable
 
-	public Ship(int id, String name, Coordinate loc) {
+	public Ship(int id, String name, String pName, Coordinate loc) {
 
 		shipWeapon = new Weapon(id);
 		shipReactor = new Reactor(id);
 		availableCoolant = 100;
 		shipHealth = 100;
 		location = loc;
-		shipID = id;
+		sessionID = id;
 		shipName = name;
 
 	}	
@@ -112,27 +112,6 @@ public class Ship {
 	}
 
 	public int getShipID(){
-		return this.shipID;
+		return sessionID;
 	}
-
-	// DEBUG AND TESTING METHODS
-
-	public void printAllShipInfo(){
-		System.out.println();
-		System.out.println("Name: " + getShipName());
-		System.out.println("Current coordinates: " + location.get3DCoordinateAsString());
-		System.out.println();
-		System.out.println("-- REACTOR INFO --");
-		System.out.println("Current output: " + shipReactor.getUsage() + "%.");
-		System.out.println("   DISTRIBUTION BREAKDOWN");
-		//System.out.println("Auxiliary: " + shipReactor.getDistribution(0) + "%."); NEED TO MAKE THESE
-		//System.out.println("Life support: " + shipReactor.getDistribution(1) + "%."); NEED TO MAKE THESE
-		//System.out.println("Engine: " + shipReactor.getDistribution(2) + "%."); NEED TO MAKE THESE
-		System.out.println("Weapon: " + shipWeapon.getPowerLevel() + "%.");
-		System.out.println();
-		System.out.println("-- WEAPON INFO --");
-		System.out.println("Weapon status: " + shipWeapon.getWeaponStatus());
-		System.out.println("Weapon configuration: " + shipWeapon.getWeaponConfiguration());
-	}
-
 }

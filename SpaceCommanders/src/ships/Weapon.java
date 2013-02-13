@@ -1,7 +1,5 @@
 package ships;
 
-import begin.Game;
-
 /**
  * If the weapon loses power, the charged energy is lost.
  * Engaged means slightly different things for rapid fire
@@ -32,8 +30,8 @@ public class Weapon extends Component {
 	boolean isCharged, isEngaged;
 	int targetedShip; // targets a ship... duh
 
-	public Weapon(int shipID){
-		super(shipID);
+	public Weapon(int sessionID){
+		super(sessionID);
 		powerLevel = 0; // HOW MUCH POWER THE WEAPON HAS FROM THE REACTOR
 		isEngaged = false;
 		isCharged = false;

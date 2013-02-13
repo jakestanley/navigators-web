@@ -2,14 +2,11 @@ package states;
 
 import org.newdawn.slick.GameContainer;
 import org.lwjgl.input.Mouse;
-import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
-
-import begin.Game;
 
 public class JoinClientState extends BasicGameState {
 
@@ -57,7 +54,6 @@ public class JoinClientState extends BasicGameState {
 		mousePosition = ("Mouse position is: " +xPos + ", " + yPos);
 		if(input.isMousePressed(Input.MOUSE_LEFT_BUTTON)){
 			if(xPos >= 45 && xPos <= 145 && yPos >= 55 && yPos <= 85){
-				Game.currentState = 0;
 				sbg.enterState(0);
 			} else {
 				

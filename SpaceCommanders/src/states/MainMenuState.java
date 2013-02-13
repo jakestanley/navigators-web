@@ -1,18 +1,12 @@
 package states;
 
-import java.awt.event.ActionEvent;
-
 import org.newdawn.slick.GameContainer;
 import org.lwjgl.input.Mouse;
-import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
-import org.newdawn.slick.MouseListener;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
-
-import begin.Game;
 
 public class MainMenuState extends BasicGameState {
 
@@ -71,22 +65,22 @@ public class MainMenuState extends BasicGameState {
 		
 		// idea: right clicking gets info (in a context menu thing) about a unit etc
 		if(input.isMousePressed(Input.MOUSE_LEFT_BUTTON)){
-			if(Game.currentState == this.stateID){
+			if(sbg.getCurrentStateID() == this.stateID){
 				if(xPos >= 45 && xPos <= 150 && yPos >= 355 && yPos <= 385){
 					mouseClickedOn = "Clicked on " + joinGameOption;
-					Game.currentState = 1;
+			
 					sbg.enterState(1);
 				} else if(xPos >= 45 && xPos <= 150 && yPos >= 305 && yPos <= 335) {
 					mouseClickedOn = "Clicked on " + hostGameOption;
-					Game.currentState = 2;
+		
 					sbg.enterState(2);
 				} else if(xPos >= 45 && xPos <= 235 && yPos >= 255 && yPos <= 285) {
 					mouseClickedOn = "Clicked on " + hostDedGameOption;
-					Game.currentState = 3;
+			
 					sbg.enterState(3);
 				} else if(xPos >= 45 && xPos <= 180 && yPos >= 205 && yPos <= 235) {
 					mouseClickedOn = "Clicked on " + singlePlayerOption;
-					Game.currentState = 4;
+		
 					sbg.enterState(4);
 				} else {
 					mouseClickedOn = "Clicked on nothing.";

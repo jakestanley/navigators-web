@@ -27,9 +27,11 @@ public class Game extends StateBasedGame{
 	public static final int spClient = 4;
 	public static final int play = 5;
 	
-	public static boolean mouseClicked;
+	static public int port = 4321;
 	
-	public static int currentState;
+	public static String playerName = "Jake";
+	public static String shipName = "Thunderchild";
+	public static int sessionID;
 	
 	public static GameServer server;
 	public static GameClient client;
@@ -37,9 +39,6 @@ public class Game extends StateBasedGame{
 	public Game(String title) {
 		
 		super(gameTitle);
-		
-		mouseClicked = false;
-		
 		// initialise, but don't start server
 		try {
 			server = new GameServer();
@@ -49,7 +48,7 @@ public class Game extends StateBasedGame{
 		}
 				
 		// initialise, but don't start client
-		client = new GameClient(new Player("Jake", "Thunderchild"));
+		client = new GameClient();
 		
 		this.addState(new MainMenuState(menu));
 		this.addState(new JoinClientState(joinClient));
@@ -67,10 +66,7 @@ public class Game extends StateBasedGame{
 		this.getState(dedServer).init(gc, this);
 		this.getState(spClient).init(gc, this);
 		this.getState(play).init(gc, this);
-		
 		this.enterState(menu);
-		currentState = 0;
-		// takes id of a state - what do i want to show the user?
 	}
 
 

@@ -18,8 +18,8 @@ public class Reactor extends Component{
 	
 	float usage, weaponDistribution, engineDistribution, lifeDistribution, auxDistribution;
 	
-	public Reactor(int shipID){
-		super(shipID);
+	public Reactor(int sessionID){
+		super(sessionID);
 		this.usage = 0;		
 	}
 	
