@@ -2,27 +2,15 @@ package net;
 
 public class Packet {
 
-	public static class PacketLoginRequest {
-		
-	}
-	
-	public static class PacketLoginAnswer {
-		boolean accepted = false;
-	}
-	
-	public static class PacketMessage {
-		String message;
-	}
-	
-	public static class PlayerPacket {
-		
-		String nickname;
+	public static class LoginPacket {
+		String playerName;
 		String shipName;
-		
+		int sessionID;
 	}
 	
-	public static class ShipIDPacket {
-		int id;
+	public static class ShipHealthPacket {
+		int sessionID;
+		float shipHealth;
 	}
 
 }
