@@ -52,14 +52,36 @@ public class GameServer {
 		Kryo kryo = server.getKryo();
 		kryo.register(LoginPacket.class);
 		kryo.register(ShipHealthPacket.class);
+		kryo.register(InitShipInfoRequest.class);
+		kryo.register(BasicAttack.class);
 	}
 	
 	public int assignSessionID(LoginPacket packet){
 		System.out.println("SERVER> Assigning id: " + sessionIndex + " to " + packet.playerName);
 		shipList.add(sessionIndex, new Ship(sessionIndex, packet.shipName, packet.playerName, new Coordinate(0,0,0)));		
+		System.out.println("SERVER> Just created new ship " + shipList.get(sessionIndex).shipName + ", piloted by " + shipList.get(sessionIndex).playerName);
 		sessionIndex++;
+		
 		return sessionIndex - 1;
 	}
+	
+	public InitShipInfoRequest requestInitShipInfoRequest(int id){
+		System.out.println("SERVER> Processing init request for sesh id " + id);
+		InitShipInfoRequest init = new InitShipInfoRequest();
+		init.availableCoolant = shipList.get(id).getAvailableCoolant();
+		System.out.println("SERVER> getting avail cool for ship " + shipList.get(id).availableCoolant);
+		init.isShipOn = shipList.get(id).isShipOn();
+		init.shipHealth = shipList.get(id).shipHealth;
+		init.shipName = shipList.get(id).shipName;		
+		init.playerName = shipList.get(id).playerName;
+		return init;
+		
+	}
+	
+	public void basicAttack(BasicAttack ba){
+		System.out.println("SERVER> Ship " + shipList.get(ba.prop).shipName + " hit " + shipList.get(ba.target).shipName);
+		shipList.get(ba.target).shipHealth--;
+	} 
 	
 }
 

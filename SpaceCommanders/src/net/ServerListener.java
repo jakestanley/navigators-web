@@ -5,6 +5,7 @@ import begin.Game;
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
 
+import net.Packet.BasicAttack;
 import net.Packet.*;
 
 public class ServerListener extends Listener {
@@ -23,6 +24,17 @@ public class ServerListener extends Listener {
 			LoginPacket packet = new LoginPacket();
 			packet.sessionID = Game.server.assignSessionID((LoginPacket) o);
 			c.sendTCP(packet);
-		} 
+		} else if(o instanceof InitShipInfoRequest) {
+			
+			InitShipInfoRequest request = (InitShipInfoRequest) o;
+			System.out.println("SERVER> Received init request from session id " + request.sessionID);
+			InitShipInfoRequest init = Game.server.requestInitShipInfoRequest(request.sessionID);
+			c.sendTCP(init);
+		} else if(o instanceof BasicAttack){
+			Game.server.basicAttack((BasicAttack) o);
+			ShipHealthPacket shp = new ShipHealthPacket();
+			shp.shipHealth = Game.server.shipList.get(((BasicAttack) o).target).shipHealth;
+			c.sendTCP(shp);
+		}
 	}
 }

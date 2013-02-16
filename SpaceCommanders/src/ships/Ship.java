@@ -10,13 +10,13 @@ import tools.Coordinate;
 
 public class Ship {
 
-	int sessionID, availableCoolant;
-	boolean isShipOn;
-	Coordinate location;
-	Weapon shipWeapon;
-	Reactor shipReactor;
+	public int sessionID, availableCoolant;
+	public boolean isShipOn;
+	public Coordinate location;
+	public Weapon shipWeapon;
+	public Reactor shipReactor;
 	public String shipName, playerName;
-	float shipHealth; // this is a temp testing variable
+	public float shipHealth; // this is a temp testing variable
 
 	public Ship(int id, String name, String pName, Coordinate loc) {
 
@@ -27,6 +27,8 @@ public class Ship {
 		location = loc;
 		sessionID = id;
 		shipName = name;
+		playerName = pName;
+		isShipOn = false;
 
 	}	
 	

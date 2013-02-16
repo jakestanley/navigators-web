@@ -18,6 +18,7 @@ public class HostClientState extends BasicGameState implements MouseListener {
 	String mouseClickedOn = "No mouse clicks yet";
 	String connectionStatus = "";
 	
+	
 	Input input;
 
 	public HostClientState(int state) {

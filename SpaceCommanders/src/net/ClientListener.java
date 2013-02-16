@@ -2,7 +2,6 @@ package net;
 
 import begin.Game;
 
-import net.Packet.LoginPacket;
 import net.Packet.*;
 
 import com.esotericsoftware.kryonet.Client;
@@ -33,13 +32,17 @@ public class ClientListener extends Listener {
 			if(packet.sessionID != -1){
 				System.out.println("CLIENT> Server gave session ID " + packet.sessionID);
 				Game.sessionID = packet.sessionID;
+				InitShipInfoRequest infPacket = new InitShipInfoRequest();
+				infPacket.sessionID = Game.sessionID;
+				client.sendTCP(infPacket);
 			} else {
-				System.out.println("CLIENT> Login request denied");
+				System.out.println("CLIENT> Join game request denied");
 				c.close();
 			}
-		} else if(o instanceof ShipHealthPacket){
-			//Game.setup.client.player.setShipID(((ShipIDPacket) o).id);
-			//System.out.println("CLIENT> Received ship id " + Game.setup.client.player.getShipID());
+		} else if(o instanceof ShipHealthPacket) {
+			Game.client.localShip.shipHealth = ((ShipHealthPacket) o).shipHealth;
+		} else if(o instanceof InitShipInfoRequest) {
+			Game.client.instantiateLocalShip((InitShipInfoRequest) o);
 		}
 	}
 
