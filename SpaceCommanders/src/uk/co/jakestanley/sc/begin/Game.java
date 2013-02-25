@@ -1,21 +1,21 @@
-package begin;
+package uk.co.jakestanley.sc.begin;
 
 import java.io.IOException;
 
-import net.GameClient;
-import net.GameServer;
 
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
-import states.DedicatedServerState;
-import states.HostClientState;
-import states.MainMenuState;
-import states.JoinClientState;
-import states.PlayState;
-import states.SPClientState;
+import uk.co.jakestanley.sc.net.GameClient;
+import uk.co.jakestanley.sc.net.GameServer;
+import uk.co.jakestanley.sc.states.DedicatedServerState;
+import uk.co.jakestanley.sc.states.HostClientState;
+import uk.co.jakestanley.sc.states.JoinClientState;
+import uk.co.jakestanley.sc.states.MainMenuState;
+import uk.co.jakestanley.sc.states.PlayState;
+import uk.co.jakestanley.sc.states.SPClientState;
 
 public class Game extends StateBasedGame{
 

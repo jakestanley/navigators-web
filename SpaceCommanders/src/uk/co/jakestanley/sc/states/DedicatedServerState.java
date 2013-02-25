@@ -1,25 +1,25 @@
-package states;
+package uk.co.jakestanley.sc.states;
 
-import org.newdawn.slick.GameContainer;
+
 import org.lwjgl.input.Mouse;
+import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
-public class JoinClientState extends BasicGameState {
+public class DedicatedServerState extends BasicGameState {
 
-	String gameTitleLabel = "Space Commanders.";
-	
 	int stateID;
 	String mousePosition = "No mouse input";
 	String mouseClickedOn = "No mouse clicks yet";
 	Input input;
 	
-	public JoinClientState(int state) {
+	public DedicatedServerState(int state) {
 		stateID = state;
 	}
+
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame sbg)
@@ -28,6 +28,9 @@ public class JoinClientState extends BasicGameState {
 		// start GameClient from here
 		// TODO Auto-generated method stub
 		
+		
+		
+		
 	}
 
 	@Override
@@ -35,13 +38,11 @@ public class JoinClientState extends BasicGameState {
 			throws SlickException {
 		// TODO Auto-generated method stub
 		
-		g.drawString("Join Game.", 50, 50);	
+		g.drawString("Host Dedicated Server.", 50, 50);
 		
 		g.drawString("Main Menu.", 50, 400);
 		g.drawString(mousePosition, 250, 10);
 		g.drawRect(45, 395, 100, 30);
-		
-		
 		
 	}
 
@@ -70,5 +71,3 @@ public class JoinClientState extends BasicGameState {
 	}
 
 }
-
-// many thanks to thenewboston for help with this

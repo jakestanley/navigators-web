@@ -1,4 +1,4 @@
-package crew;
+package uk.co.jakestanley.sc.crew;
 
 import java.util.Random;
 

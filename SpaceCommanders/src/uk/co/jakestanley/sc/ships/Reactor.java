@@ -1,4 +1,4 @@
-package ships;
+package uk.co.jakestanley.sc.ships;
 
 /**
  * Reactor capacity can be distributed to the various systems of the ship. Integral ship components such as life support must 

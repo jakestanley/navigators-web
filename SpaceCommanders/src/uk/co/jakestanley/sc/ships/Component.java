@@ -1,4 +1,4 @@
-package ships;
+package uk.co.jakestanley.sc.ships;
 
 /**
  * All ship components inherit from this class. 

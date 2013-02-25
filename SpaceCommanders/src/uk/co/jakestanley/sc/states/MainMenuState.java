@@ -1,4 +1,4 @@
-package states;
+package uk.co.jakestanley.sc.states;
 
 import org.newdawn.slick.GameContainer;
 import org.lwjgl.input.Mouse;

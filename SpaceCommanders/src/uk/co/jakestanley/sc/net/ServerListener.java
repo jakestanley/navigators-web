@@ -1,12 +1,11 @@
-package net;
+package uk.co.jakestanley.sc.net;
 
-import begin.Game;
+import uk.co.jakestanley.sc.begin.Game;
+import uk.co.jakestanley.sc.net.Packet.*;
 
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
 
-import net.Packet.BasicAttack;
-import net.Packet.*;
 
 public class ServerListener extends Listener {
 	

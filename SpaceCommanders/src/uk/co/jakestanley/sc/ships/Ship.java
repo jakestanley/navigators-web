@@ -1,6 +1,6 @@
-package ships;
+package uk.co.jakestanley.sc.ships;
 
-import tools.Coordinate;
+import uk.co.jakestanley.sc.tools.Coordinate;
 
 /**
  * Coolant can be distributed throughout the ship to components.

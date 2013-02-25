@@ -1,4 +1,4 @@
-package tools;
+package uk.co.jakestanley.sc.tools;
 
 /**
  * Coordinates have no collision detection. 

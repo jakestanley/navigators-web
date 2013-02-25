@@ -1,19 +1,19 @@
-package net;
+package uk.co.jakestanley.sc.net;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-import ships.Ship;
-import tools.Coordinate;
+import uk.co.jakestanley.sc.begin.Game;
+import uk.co.jakestanley.sc.crew.Member;
+import uk.co.jakestanley.sc.net.Packet.*;
+import uk.co.jakestanley.sc.ships.Ship;
+import uk.co.jakestanley.sc.tools.Coordinate;
 
-import net.Packet.*;
 
-import begin.Game;
 
 import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryonet.Server;
 
-import crew.Member;
 
 public class GameServer {
 	

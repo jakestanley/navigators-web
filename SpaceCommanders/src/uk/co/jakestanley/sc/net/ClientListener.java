@@ -1,8 +1,8 @@
-package net;
+package uk.co.jakestanley.sc.net;
 
-import begin.Game;
+import uk.co.jakestanley.sc.begin.Game;
+import uk.co.jakestanley.sc.net.Packet.*;
 
-import net.Packet.*;
 
 import com.esotericsoftware.kryonet.Client;
 import com.esotericsoftware.kryonet.Connection;

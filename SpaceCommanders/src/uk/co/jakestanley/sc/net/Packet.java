@@ -1,6 +1,6 @@
-package net;
+package uk.co.jakestanley.sc.net;
 
-import tools.Coordinate;
+import uk.co.jakestanley.sc.tools.Coordinate;
 
 public class Packet {
 

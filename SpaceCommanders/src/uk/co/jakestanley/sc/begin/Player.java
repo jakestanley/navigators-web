@@ -1,4 +1,4 @@
-package begin;
+package uk.co.jakestanley.sc.begin;
 
 public class Player {
 

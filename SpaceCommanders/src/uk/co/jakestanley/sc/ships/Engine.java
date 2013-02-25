@@ -1,4 +1,4 @@
-package ships;
+package uk.co.jakestanley.sc.ships;
 
 public class Engine extends Component {
 

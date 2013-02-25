@@ -1,4 +1,4 @@
-package ships;
+package uk.co.jakestanley.sc.ships;
 
 /**
  * If the weapon loses power, the charged energy is lost.
