@@ -79,7 +79,7 @@ public class GameServer {
 		shipList.get(target).shipHealth--;
 		ShipHealthPacket shp = new ShipHealthPacket();
 		shp.shipHealth = shipList.get(target).shipHealth;
-		Game.out("SERVER> " + shipList.get(target).getShipName() + " health is now " + shipList.get(target).getShipHealth());
+		Game.out("SERVER> " + shipList.get(target).getShipID() + " health is now " + shipList.get(target).getShipHealth());
 		server.sendToTCP(ba.target, shp);
 		
 	}

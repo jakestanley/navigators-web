@@ -41,7 +41,7 @@ public class ClientListener extends Listener {
 				c.close();
 			}
 		} else if(o instanceof ShipHealthPacket) {
-			Game.out("CLIENT LISTENER> Received a ShipHealthPacket. It says " + ((ShipHealthPacket) o).shipHealth);
+			Game.out("CLIENT LISTENER> " + Game.sessionID + " received a ShipHealthPacket. It says " + ((ShipHealthPacket) o).shipHealth);
 			Game.client.localShip.setShipHealth(((ShipHealthPacket) o).shipHealth);
 		} else if(o instanceof InitShipInfoRequest) {
 			Game.client.instantiateLocalShip((InitShipInfoRequest) o);
