@@ -112,6 +112,14 @@ public class Ship {
 		}
 		return success;
 	}
+	
+	public float getShipHealth(){
+		return shipHealth;
+	}
+	
+	public void setShipHealth(float h){
+		shipHealth = h;
+	}
 
 	public int getShipID(){
 		return sessionID;
