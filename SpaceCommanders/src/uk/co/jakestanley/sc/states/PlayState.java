@@ -1,5 +1,6 @@
 package uk.co.jakestanley.sc.states;
 
+
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -9,7 +10,7 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 import uk.co.jakestanley.sc.begin.Game;
-import uk.co.jakestanley.sc.ships.Ship;
+
 
 
 public class PlayState extends BasicGameState {
@@ -20,7 +21,7 @@ public class PlayState extends BasicGameState {
 	int xPos, yPos;
 	Input input;
 	
-	public PlayState(int state){
+	public PlayState(int state){ // needs to handle quitting the game
 		stateID = state;
 	}
 
@@ -51,8 +52,8 @@ public class PlayState extends BasicGameState {
 		// update strings and images here
 		// gets ship information from local Ship instance
 		
-		int xPos = Mouse.getX();
-		int yPos = Mouse.getY();
+		xPos = Mouse.getX();
+		yPos = Mouse.getY();
 		
 		try {
 			shipName = Game.client.localShip.shipName;
@@ -65,22 +66,19 @@ public class PlayState extends BasicGameState {
 			playerName = "null";
 		} 
 		try {
-			shipHealth = Game.client.localShip.shipHealth;
+			shipHealth = Game.client.localShip.getShipHealth();
 		} catch(Exception e){
 			shipHealth = -1;
 		}
 		
-		
-		
 		if(input.isMousePressed(Input.MOUSE_LEFT_BUTTON)){
 			if(sbg.getCurrentStateID() == this.stateID){
 				if(xPos >= 45 && xPos <= 145 && yPos >= 55 && yPos <= 85){
-					Game.client.basicAttack(0);
-					// need to handle quitting the game
+					Game.client.basicAttack(Game.sessionID);
+					Game.out("CLIENT> Current ship health: " + Game.client.localShip.getShipHealth());
 				}
 			}
 		}
-		
 	}
 
 	@Override
