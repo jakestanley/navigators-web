@@ -1,6 +1,7 @@
 package uk.co.jakestanley.sc.net;
 
 import uk.co.jakestanley.sc.begin.Game;
+import uk.co.jakestanley.sc.net.Packet.ShipHealthPacket;
 import uk.co.jakestanley.sc.net.Packet.*;
 
 import com.esotericsoftware.kryonet.Connection;
@@ -10,30 +11,32 @@ import com.esotericsoftware.kryonet.Listener;
 public class ServerListener extends Listener {
 	
 	public void connected(Connection c){
-		System.out.println("SERVER> A client has connected.");
+		Game.out("SERVER> A client has connected.");
 	}
 	
 	public void disconnected(Connection c){
-		System.out.println("SERVER> A client has disconnected.");
+		Game.out("SERVER> A client has disconnected.");
 	}
 	
 	public void received(Connection c, Object o){
 		if(o instanceof LoginPacket){
-			System.out.println("SERVER> Client login request received.");
-			LoginPacket packet = new LoginPacket();
-			packet.sessionID = Game.server.assignSessionID((LoginPacket) o);
+			Game.out("SERVER> Client login request received.");
+			LoginPacket packet = ((LoginPacket)o);
+			packet.sessionID = c.getID();
+			Game.server.setupSession(packet);
 			c.sendTCP(packet);
-			System.out.println("SERVER LISTENER> Connection made with ID: " + c.getID());
+			Game.out("SERVER LISTENER> Player joined the game with connection ID: " + c.getID());
 		} else if(o instanceof InitShipInfoRequest) {
-			
 			InitShipInfoRequest request = (InitShipInfoRequest) o;
-			System.out.println("SERVER> Received init request from session id " + request.sessionID);
+			Game.out("SERVER> Received init request from session id " + request.sessionID);
 			InitShipInfoRequest init = Game.server.requestInitShipInfoRequest(request.sessionID);
 			c.sendTCP(init);
 		} else if(o instanceof BasicAttack){
 			Game.server.basicAttack((BasicAttack) o);
-			ShipHealthPacket shp = new ShipHealthPacket();
-			shp.shipHealth = Game.server.shipList.get(((BasicAttack) o).target).shipHealth;
+			Game.out("SERVER LISTENER> Just received an instance of BasicAttack");
+		} else if(o instanceof ShipHealthPacket){
+			ShipHealthPacket shp = (ShipHealthPacket) o;
+			shp.shipHealth = Game.server.shipList.get(Game.server.getShipIndexBySessionID(shp.sessionID)).getShipHealth();
 			c.sendTCP(shp);
 		}
 	}

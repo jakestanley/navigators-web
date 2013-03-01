@@ -72,8 +72,13 @@ public class GameClient {
 	public void basicAttack(int id){
 		BasicAttack basic = new BasicAttack();
 		basic.prop = Game.sessionID;
-		basic.target = 0;
-	
+		basic.target = 1;
 		client.sendTCP(basic);
+	}
+	
+	public void requestShipHealth(int id){
+		ShipHealthPacket shp = new ShipHealthPacket();
+		shp.sessionID = id;
+		client.sendTCP(shp);
 	}
 }

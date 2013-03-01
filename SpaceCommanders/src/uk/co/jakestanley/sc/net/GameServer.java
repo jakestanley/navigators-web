@@ -20,8 +20,6 @@ public class GameServer {
 	public ArrayList<Ship> shipList = new ArrayList<Ship>();;
 	public ArrayList<Member> crewList = new ArrayList<Member>();;
 	
-	int sessionIndex = 0;
-	
 	public boolean serverStarted;
 
 	private Server server;
@@ -56,35 +54,44 @@ public class GameServer {
 		kryo.register(BasicAttack.class);
 	}
 	
-	public int assignSessionID(LoginPacket packet){
-		System.out.println("SERVER> Assigning id: " + sessionIndex + " to " + packet.playerName);
-		shipList.add(sessionIndex, new Ship(sessionIndex, packet.shipName, packet.playerName, new Coordinate(0,0,0)));		
-		System.out.println("SERVER> Just created new ship " + shipList.get(sessionIndex).shipName + ", piloted by " + shipList.get(sessionIndex).playerName);
-		sessionIndex++;
-		
-		return sessionIndex - 1;
+	public void setupSession(LoginPacket packet){
+		shipList.add(new Ship(packet.sessionID, packet.shipName, packet.playerName, new Coordinate(0,0,0)));		
+		System.out.println("SERVER> Just created new ship " + packet.shipName + ", piloted by " + packet.playerName);
 	}
 	
 	public InitShipInfoRequest requestInitShipInfoRequest(int id){
 		System.out.println("SERVER> Processing init request for sesh id " + id);
 		InitShipInfoRequest init = new InitShipInfoRequest();
-		init.availableCoolant = shipList.get(id).getAvailableCoolant();
-		System.out.println("SERVER> getting avail cool for ship " + shipList.get(id).availableCoolant);
-		init.isShipOn = shipList.get(id).isShipOn();
-		init.shipHealth = shipList.get(id).shipHealth;
-		init.shipName = shipList.get(id).shipName;
-		init.playerName = shipList.get(id).playerName;
+		int shipIndex = getShipIndexBySessionID(id);
+		init.availableCoolant = shipList.get(shipIndex).getAvailableCoolant();
+		System.out.println("SERVER> getting avail cool for ship " + shipList.get(shipIndex).availableCoolant);
+		init.isShipOn = shipList.get(shipIndex).isShipOn();
+		init.shipHealth = shipList.get(shipIndex).shipHealth;
+		init.shipName = shipList.get(shipIndex).shipName;
+		init.playerName = shipList.get(shipIndex).playerName;
 		return init;
 		
 	}
 	
 	public void basicAttack(BasicAttack ba){
-		System.out.println("SERVER> Ship " + shipList.get(ba.prop).shipName + " hit " + shipList.get(ba.target).shipName);
-		shipList.get(ba.target).shipHealth--;
+		Game.out("SERVER> Doing basic attack");
+		int target = getShipIndexBySessionID(ba.target);
+		shipList.get(target).shipHealth--;
 		ShipHealthPacket shp = new ShipHealthPacket();
-		shp.shipHealth = 0;
-		server.sendToTCP(1, shp);
-	} 
+		shp.shipHealth = shipList.get(target).shipHealth;
+		Game.out("SERVER> " + shipList.get(target).getShipName() + " health is now " + shipList.get(target).getShipHealth());
+		server.sendToTCP(ba.target, shp);
+		
+	}
+	
+	public int getShipIndexBySessionID(int id){
+		for(int i = 0; i < shipList.size(); i++){
+			if(shipList.get(i).getShipID() == id){
+				return i;
+			}
+		}
+		return -1;
+	}
 	
 }
 

@@ -32,6 +32,7 @@ public class ClientListener extends Listener {
 			if(packet.sessionID != -1){
 				System.out.println("CLIENT> Server gave session ID " + packet.sessionID);
 				Game.sessionID = packet.sessionID;
+				Game.out("CLIENT LISTENER> Server gave session id: " + Game.sessionID);
 				InitShipInfoRequest infPacket = new InitShipInfoRequest();
 				infPacket.sessionID = Game.sessionID;
 				client.sendTCP(infPacket);
@@ -40,7 +41,8 @@ public class ClientListener extends Listener {
 				c.close();
 			}
 		} else if(o instanceof ShipHealthPacket) {
-			Game.client.localShip.shipHealth = ((ShipHealthPacket) o).shipHealth;
+			Game.out("CLIENT LISTENER> Received a ShipHealthPacket. It says " + ((ShipHealthPacket) o).shipHealth);
+			Game.client.localShip.setShipHealth(((ShipHealthPacket) o).shipHealth);
 		} else if(o instanceof InitShipInfoRequest) {
 			Game.client.instantiateLocalShip((InitShipInfoRequest) o);
 		}
