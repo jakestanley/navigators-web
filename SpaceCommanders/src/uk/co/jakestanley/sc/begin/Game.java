@@ -24,9 +24,10 @@ public class Game extends StateBasedGame{
 	public static final int play = 3;
 	
 	static public int port = 4321;
+	static public String host = ""; // this needs to be null by default
 	
-	public static String playerName = "Jake"; // need to make this set by game client
-	public static String shipName = "Thunderchild"; // need to make this set by game client
+	public static String playerName = "Jamie"; // need to make this set by game client
+	public static String shipName = "HMS Jamie"; // need to make this set by game client
 	public static int sessionID;
 	
 	public static GameServer server;

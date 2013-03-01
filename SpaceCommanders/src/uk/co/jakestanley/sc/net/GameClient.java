@@ -23,7 +23,7 @@ public class GameClient {
 	// all the relevant info from the server
 	
 	public Client client;
-	public String host = "";
+	//public String host = "";
 	public ClientListener listener;
 	public ArrayList<Ship> localShipList = new ArrayList<Ship>();
 	public ArrayList<Member> localCrewList = new ArrayList<Member>(); // iterate through ship list to get ship based on id?
@@ -41,7 +41,7 @@ public class GameClient {
 		boolean success = false; 
 		try {
 			System.out.println("CLIENT> Connecting.");
-			client.connect(5000, host, Game.port);
+			client.connect(5000, Game.host, Game.port);
 			success = true;
 		} catch (IOException e) {
 			System.out.println("CLIENT> Couldn't connect.");
