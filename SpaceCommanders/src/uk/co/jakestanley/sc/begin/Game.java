@@ -10,9 +10,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import uk.co.jakestanley.sc.net.GameClient;
 import uk.co.jakestanley.sc.net.GameServer;
-import uk.co.jakestanley.sc.states.DedicatedServerState;
 import uk.co.jakestanley.sc.states.HostClientState;
-import uk.co.jakestanley.sc.states.JoinClientState;
 import uk.co.jakestanley.sc.states.MainMenuState;
 import uk.co.jakestanley.sc.states.PlayState;
 import uk.co.jakestanley.sc.states.SPClientState;
@@ -21,11 +19,9 @@ public class Game extends StateBasedGame{
 
 	public static final String gameTitle = "Space Commanders";
 	public static final int menu = 0;
-	public static final int joinClient = 1;
+	public static final int spClient = 1;
 	public static final int hostClient = 2;
-	public static final int dedServer = 3;
-	public static final int spClient = 4;
-	public static final int play = 5;
+	public static final int play = 3;
 	
 	static public int port = 4321;
 	
@@ -51,20 +47,18 @@ public class Game extends StateBasedGame{
 		client = new GameClient();
 		
 		this.addState(new MainMenuState(menu));
-		this.addState(new JoinClientState(joinClient));
-		this.addState(new HostClientState(hostClient));
-		this.addState(new DedicatedServerState(dedServer));
 		this.addState(new SPClientState(spClient));
+		this.addState(new HostClientState(hostClient));
+		
 		this.addState(new PlayState(play));
 	}
 
 	public void initStatesList(GameContainer gc) throws SlickException {
 
 		this.getState(menu).init(gc, this); // get states
-		this.getState(joinClient).init(gc, this);
-		this.getState(hostClient).init(gc, this);
-		this.getState(dedServer).init(gc, this);
 		this.getState(spClient).init(gc, this);
+		this.getState(hostClient).init(gc, this);
+		
 		this.getState(play).init(gc, this);
 		this.enterState(menu);
 	}

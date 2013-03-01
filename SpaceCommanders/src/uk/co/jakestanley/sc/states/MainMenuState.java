@@ -11,9 +11,9 @@ import org.newdawn.slick.state.StateBasedGame;
 public class MainMenuState extends BasicGameState {
 
 	String gameTitleLabel = "Space Commanders.";
-	String joinGameOption = "Join Game.";
-	String hostGameOption = "Host Game.";
-	String hostDedGameOption = "Host Dedicated Game.";
+	//String joinGameOption = "Join Game.";
+	String multiplayerGameOption = "Multiplayer.";
+	//String hostDedGameOption = "Host Dedicated Game.";
 	String singlePlayerOption = "Single Player.";
 	String mousePosition = "No mouse input";
 	String mouseClickedOn = "No mouse clicks yet";
@@ -41,14 +41,10 @@ public class MainMenuState extends BasicGameState {
 		// TODO Auto-generated method stub
 
 		g.drawString(gameTitleLabel, 50, 50);
-		g.drawString(joinGameOption, 50, 100);
-		g.drawRect(45, 95, 105, 30);
-		g.drawString(hostGameOption, 50, 150);
-		g.drawRect(45, 145, 105, 30);
-		g.drawString(hostDedGameOption, 50, 200);
-		g.drawRect(45, 195, 190, 30);
-		g.drawString(singlePlayerOption, 50, 250);
-		g.drawRect(45, 245, 135, 30);
+		g.drawString(multiplayerGameOption, 50, 150);
+		g.drawRect(45, 145, 120, 30);
+		g.drawString(singlePlayerOption, 50, 100);
+		g.drawRect(45, 95, 135, 30);
 		g.drawString(mousePosition, 250, 10);
 		g.drawString(mouseClickedOn, 400, 200);
 
@@ -66,31 +62,17 @@ public class MainMenuState extends BasicGameState {
 		// idea: right clicking gets info (in a context menu thing) about a unit etc
 		if(input.isMousePressed(Input.MOUSE_LEFT_BUTTON)){
 			if(sbg.getCurrentStateID() == this.stateID){
-				if(xPos >= 45 && xPos <= 150 && yPos >= 355 && yPos <= 385){
-					mouseClickedOn = "Clicked on " + joinGameOption;
-			
+				if(xPos >= 45 && xPos <= 180 && yPos >= 355 && yPos <= 385){
+					mouseClickedOn = "Clicked on " + singlePlayerOption;
 					sbg.enterState(1);
 				} else if(xPos >= 45 && xPos <= 150 && yPos >= 305 && yPos <= 335) {
-					mouseClickedOn = "Clicked on " + hostGameOption;
-		
+					mouseClickedOn = "Clicked on " + multiplayerGameOption;
 					sbg.enterState(2);
-				} else if(xPos >= 45 && xPos <= 235 && yPos >= 255 && yPos <= 285) {
-					mouseClickedOn = "Clicked on " + hostDedGameOption;
-			
-					sbg.enterState(3);
-				} else if(xPos >= 45 && xPos <= 180 && yPos >= 205 && yPos <= 235) {
-					mouseClickedOn = "Clicked on " + singlePlayerOption;
-		
-					sbg.enterState(4);
 				} else {
 					mouseClickedOn = "Clicked on nothing.";
 				}
 			}
-		
-		}
-		
-		
-		
+		}	
 	}
 
 	@Override

@@ -69,7 +69,7 @@ public class HostClientState extends BasicGameState implements MouseListener {
 					Game.server.startServer();
 				} else if(xPos >= 45 && xPos <= 145 && yPos >= 305 && yPos <= 335){
 					if(Game.client.connectToServer()){
-						sbg.enterState(5);
+						sbg.enterState(3);
 					}
 				}
 			}
