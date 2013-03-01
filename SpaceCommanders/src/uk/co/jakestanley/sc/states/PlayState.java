@@ -67,7 +67,7 @@ public class PlayState extends BasicGameState {
 		try {
 			shipHealth = Game.client.localShip.shipHealth;
 		} catch(Exception e){
-			shipHealth = 0;
+			shipHealth = -1;
 		}
 		
 		

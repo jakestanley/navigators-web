@@ -72,7 +72,7 @@ public class GameServer {
 		System.out.println("SERVER> getting avail cool for ship " + shipList.get(id).availableCoolant);
 		init.isShipOn = shipList.get(id).isShipOn();
 		init.shipHealth = shipList.get(id).shipHealth;
-		init.shipName = shipList.get(id).shipName;		
+		init.shipName = shipList.get(id).shipName;
 		init.playerName = shipList.get(id).playerName;
 		return init;
 		
@@ -81,6 +81,9 @@ public class GameServer {
 	public void basicAttack(BasicAttack ba){
 		System.out.println("SERVER> Ship " + shipList.get(ba.prop).shipName + " hit " + shipList.get(ba.target).shipName);
 		shipList.get(ba.target).shipHealth--;
+		ShipHealthPacket shp = new ShipHealthPacket();
+		shp.shipHealth = 0;
+		server.sendToTCP(1, shp);
 	} 
 	
 }

@@ -23,6 +23,7 @@ public class ServerListener extends Listener {
 			LoginPacket packet = new LoginPacket();
 			packet.sessionID = Game.server.assignSessionID((LoginPacket) o);
 			c.sendTCP(packet);
+			System.out.println("SERVER LISTENER> Connection made with ID: " + c.getID());
 		} else if(o instanceof InitShipInfoRequest) {
 			
 			InitShipInfoRequest request = (InitShipInfoRequest) o;
