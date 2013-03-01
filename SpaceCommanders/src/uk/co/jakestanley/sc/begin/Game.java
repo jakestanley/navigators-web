@@ -10,10 +10,10 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import uk.co.jakestanley.sc.net.GameClient;
 import uk.co.jakestanley.sc.net.GameServer;
-import uk.co.jakestanley.sc.states.HostClientState;
 import uk.co.jakestanley.sc.states.MainMenuState;
-import uk.co.jakestanley.sc.states.PlayState;
 import uk.co.jakestanley.sc.states.SPClientState;
+import uk.co.jakestanley.sc.states.HostClientState;
+import uk.co.jakestanley.sc.states.PlayState;
 
 public class Game extends StateBasedGame{
 
@@ -25,8 +25,8 @@ public class Game extends StateBasedGame{
 	
 	static public int port = 4321;
 	
-	public static String playerName = "Jake";
-	public static String shipName = "Thunderchild";
+	public static String playerName = "Jake"; // need to make this set by game client
+	public static String shipName = "Thunderchild"; // need to make this set by game client
 	public static int sessionID;
 	
 	public static GameServer server;
@@ -49,7 +49,6 @@ public class Game extends StateBasedGame{
 		this.addState(new MainMenuState(menu));
 		this.addState(new SPClientState(spClient));
 		this.addState(new HostClientState(hostClient));
-		
 		this.addState(new PlayState(play));
 	}
 
@@ -69,7 +68,12 @@ public class Game extends StateBasedGame{
 		AppGameContainer gameWindow = new AppGameContainer(new Game(gameTitle));
 		gameWindow.setDisplayMode(720, 480, false); // last variable is whether game is full screen or not
 		gameWindow.setTargetFrameRate(60);
+		gameWindow.setVSync(true);
 		gameWindow.start();
 		
+	}
+	
+	public static void out(String s){
+		System.out.println(s);
 	}
 }
