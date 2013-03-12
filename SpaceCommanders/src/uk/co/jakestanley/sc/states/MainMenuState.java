@@ -2,6 +2,7 @@ package uk.co.jakestanley.sc.states;
 
 import org.newdawn.slick.GameContainer;
 import org.lwjgl.input.Mouse;
+import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
@@ -39,7 +40,7 @@ public class MainMenuState extends BasicGameState {
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g)
 			throws SlickException {
 		// TODO Auto-generated method stub
-
+		g.setBackground(new Color(127, 127, 127));
 		scLogo.draw(50, 50);
 		g.drawString(singlePlayerOption, 50, 140);
 		g.drawRect(45, 135, 135, 30);
