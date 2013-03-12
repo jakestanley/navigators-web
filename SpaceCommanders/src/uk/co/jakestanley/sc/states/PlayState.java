@@ -41,7 +41,7 @@ public class PlayState extends BasicGameState {
 		g.drawString("Pilot name: " + playerName, 50, 100);
 		g.drawString("Ship Health: " + shipHealth, 50, 150);
 		g.drawString("FIRE @ 0", 50, 400);
-		g.drawRect(45, 395, 100, 30);
+		g.drawRect(45, 395, 100, 30); // TODO draw a list of connected clients
 		
 	}
 
