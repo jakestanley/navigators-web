@@ -29,14 +29,15 @@ public class GameServer {
 		server = new Server();
 		registerPackets();
 		server.addListener(new ServerListener());
-		server.bind(Game.port);
+		// server.bind(Game.port);
 	}
 	
-	public void startServer(){
+	public void startServer() throws IOException{
 		if(!serverStarted){
-		System.out.println("SERVER> Starting server.");
-		serverStarted = true;
+		server.bind(Game.port);	
+		System.out.println("SERVER> Starting server on port " + Game.port);
 		server.start();
+		serverStarted = true;
 		} else {
 			System.out.println("SERVER> Server is already running.");
 		}
