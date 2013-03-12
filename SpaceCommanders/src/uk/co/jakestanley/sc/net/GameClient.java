@@ -40,7 +40,7 @@ public class GameClient {
 		client.start();
 		boolean success = false; 
 		try {
-			System.out.println("CLIENT> Connecting.");
+			System.out.println("CLIENT> Connecting on port " + Game.port);
 			client.connect(5000, Game.host, Game.port);
 			success = true;
 		} catch (IOException e) {
