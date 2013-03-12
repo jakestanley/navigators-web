@@ -69,10 +69,10 @@ public class GameClient {
 		kryo.register(BasicAttack.class);
 	}
 	
-	public void basicAttack(int id){
+	public void basicAttack(int id, int tID){
 		BasicAttack basic = new BasicAttack();
 		basic.prop = Game.sessionID;
-		basic.target = 1;
+		basic.target = tID;
 		client.sendTCP(basic);
 	}
 	

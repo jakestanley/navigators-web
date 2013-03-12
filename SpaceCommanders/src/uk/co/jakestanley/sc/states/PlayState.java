@@ -74,7 +74,7 @@ public class PlayState extends BasicGameState {
 		if(input.isMousePressed(Input.MOUSE_LEFT_BUTTON)){
 			if(sbg.getCurrentStateID() == this.stateID){
 				if(xPos >= 45 && xPos <= 145 && yPos >= 55 && yPos <= 85){
-					Game.client.basicAttack(Game.sessionID);
+					Game.client.basicAttack(Game.sessionID, 1);
 					Game.out("CLIENT> Current ship health: " + Game.client.localShip.getShipHealth());
 				}
 			}
