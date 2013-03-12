@@ -12,6 +12,10 @@ public class ServerListener extends Listener {
 	
 	public void connected(Connection c){
 		Game.out("SERVER> A client has connected.");
+		if(Game.server.shipList.size() > 7){ // an arbitrary number of max players is 8
+			Game.out("Cannot accept new players. Server limit reached");
+			c.close();
+		}
 	}
 	
 	public void disconnected(Connection c){
