@@ -23,6 +23,7 @@ public class Game extends StateBasedGame{
 	public static final int hostClient = 2;
 	public static final int play = 3;
 	
+	static public String serverName = "A Space Commanders server";
 	static public int port = 4321;
 	static public String host = ""; // this needs to be null by default
 	
