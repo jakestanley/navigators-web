@@ -126,6 +126,9 @@ public class HostClientState extends BasicGameState implements MouseListener {
 		if(input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)){
 			if(xPos >= 300 && xPos <= 500 && yPos >= 355 && yPos <= 380){
 				serverNameField.setFocus(true);
+//				snFocus = true;
+//				spFocus = false;
+//				....
 			} else if(xPos >= 550 && xPos <= 650 && yPos >= 355 && yPos <= 380) {
 				serverPortField.setFocus(true);
 			} else if(xPos >= 300 && xPos <= 475 && yPos >= 305 && yPos <= 330){
@@ -138,6 +141,11 @@ public class HostClientState extends BasicGameState implements MouseListener {
 				shipNameField.setFocus(true);
 			}
 		}
+		
+//		if (snFocus && !serverNameField.hasFocus()){
+//			serverNameField.setFocus(true);
+//		}
+		
 	}
 
 	@Override
