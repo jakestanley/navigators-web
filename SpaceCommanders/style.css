@@ -1,0 +1,37 @@
+// Stolen from my website.
+
+a {	
+	cursor: pointer;
+	color: white;
+	text-decoration: none;
+}
+h1 {
+	font-weight: 400;
+}
+h2 {
+	font-weight: 400;
+}
+body {
+	max-width:600px;
+	padding-top: 4em;
+	padding-left: 11em;
+	font-family: "Trebuchet MS";
+	color: white;
+	background-color: #000000;
+}
+
+ul, li {
+    list-style-type: none;
+    color: white;
+}
+extend {
+	display: inline-block;
+	margin-left: -1em;
+	color: grey;
+}
+desc {
+	color: red;
+}
+footer {
+	font-size: 12;
+}
