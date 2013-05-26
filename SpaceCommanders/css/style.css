@@ -16,22 +16,18 @@ body {
 	padding-top: 4em;
 	padding-left: 11em;
 	font-family: "Trebuchet MS";
-	color: white;
-	background-color: #000000;
+	color: grey;
+	background-color: #B6C5BE;
 }
 
 ul, li {
     list-style-type: none;
-    color: white;
-}
-extend {
-	display: inline-block;
-	margin-left: -1em;
-	color: grey;
-}
-desc {
-	color: red;
+    color: grey;
 }
 footer {
 	font-size: 12;
+	position:absolute;
+    bottom:0;
+    width:100%;
+    height:100px;
 }
