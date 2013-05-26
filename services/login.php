@@ -1,40 +1,23 @@
 <?php session_start();
 
-include '../classes/dbcon.class.php';
-include '../classes/login.class.php';
+include '../classes/db.class.php';
 	
-if((isset($_POST["user"]) && isset($_POST["pw"])) || 
-(isset($_COOKIE["animal-shelter-user-1992"]) && (isset($_COOKIE["animal-shelter-pass-1992"])))){
+if((isset($_POST["user"]) && isset($_POST["pw"]))){
+
+// || (isset($_COOKIE["animal-shelter-user-1992"]) && (isset($_COOKIE["animal-shelter-pass-1992"])))){ or if there are cookies set
 	
-	$newdb = new dbcon();
-	$login = new login();
+	$username = $_POST["user"];
+	$password = md5($_POST["pw"]);
 	
-	if(isset($_POST["user"]) && isset($_POST["pw"])){
-		$login->username = $_POST["user"];
-		$login->password = md5($_POST["pw"]);
+	$db = new db();
+	$sql = 'SELECT * FROM useraccounts WHERE Username = "'.$username.'" AND `Password` = "'.$password.'"';
+	$rs = $db->dbQuery($sql);
+	if($row = $rs->fetch_array()){
+		$_SESSION["userID"] = $row["ID"];
+		$_SESSION["username"] = $row["Username"];
+		header("location: ../");
 	} else {
-		$login->username = $_COOKIE["animal-shelter-user-1992"];
-		$login->password = md5($_COOKIE["animal-shelter-pass-1992"]);
+		header("location: ../index.php?e=1");
 	}
-	
-	if($login->login()){
-		$_SESSION["userID"] = $login->userID;
-		$_SESSION["setup"] = $login->setup;
-		$_SESSION["userType"] = $login->userType;
-		$_SESSION["username"] = $login->username;
-		if(isset($_POST["remember"])){
-			$un = $_POST["user"];
-			$pw = $_POST["pw"];
-			setcookie("animal-shelter-user-1992", "$un", time()+604800);
-			setcookie("animal-shelter-pass-1992", "$pw", time()+604800);
-		}
-		header("location: ../index.php");
-	} else {
-		header("location: ../index.php?e=1");		
-	}
-	
-} else {
-	header("location: ../index.php");
-}
-	
+}	
 ?>

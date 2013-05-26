@@ -1,15 +1,49 @@
 <?php session_start();
-	include 'classes/db.class.php';
+
+include 'classes/db.class.php';
 	
 	echo '<!DOCTYPE HTML>
 <html lang="en-GB">
 	<head>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script language="javascript" type="text/javascript" src="js/login.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<meta charset="UTF-8">
 		<title>Navigators</title>
 	</head>
 		<body>
 		<div id="content">'; // Body is closed by the footer.php file
+		
+		if(isset($_GET["e"])){ // Error codes
+			$e = $_GET["e"];
+			$error = "<somecode>Error code $e: ";
+			
+			if($e == 1){
+				$error .= "Invalid login credentials";
+			} else if($e == 2){
+				$error .= "The passwords you entered for registration did not match";
+			} else if($e == 3){
+				$error .= "Your account has not yet been verified";
+			} else if($e == 4){
+				$error .= "You must fill in all registration fields";
+			} else if($e == 5){
+				$error .= "That user name has already been taken";
+			} else if($e == 6){
+				$error .= "There is already a user registered with that email address";
+			}
+			
+			$error .= "</somecode>";
+			echo $error;
+		}
+		
+		if(isset($_GET["s"])){ // Success codes
+			$s = $_GET["s"];
+			$success = "<somecode>Success code $s: ";
+			if($s == 1){
+				$success .= "You successfully registered! Check your emails for account verification instructions";
+			}
+			$success .= "</somecode>";
+			echo $success;
+		}
 	
 ?>

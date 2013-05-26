@@ -4,9 +4,7 @@ class login {
 	
 	public function buildLogin(){
 		
-		$html = '<script language="javascript" type="text/javascript" src="js/login.js"></script>'; // include javascript for this page
-		
-		$html .= '
+		$html = '
 			<li><h1>Welcome to Navigators</h1></li>
 			<div class="forms" id="forms-login">
 				<form method="post" action="services/login.php">

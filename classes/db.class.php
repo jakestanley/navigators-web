@@ -3,7 +3,7 @@
 class db {
 	
 	public $host = "localhost";
-	public $user = "root";
+	public $user = "root"; // Don't use the root account on the actual website. Use a less privileged account
 	public $pass = "";
 	public $dbname = "navigator";
 	private $conn;

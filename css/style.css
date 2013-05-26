@@ -11,6 +11,9 @@ h1 {
 h2 {
 	font-weight: 400;
 }
+somecode {
+	font-size: 75%;
+}
 body {
 	max-width:600px;
 	padding-top: 4em;
