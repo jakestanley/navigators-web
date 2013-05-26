@@ -24,6 +24,13 @@ ul, li {
     list-style-type: none;
     color: grey;
 }
+
+button.link {
+	background: none;
+	border: none;
+	color: grey;
+}
+
 footer {
 	font-size: 12;
 	position:absolute;

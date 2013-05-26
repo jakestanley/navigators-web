@@ -16,7 +16,7 @@ class login {
 					<li><input type="password" name="pw" value=""></li>
 					<li><input type="submit" value="Login"></li>
 				</form>
-				<button id="show-register">New to Navigators?</li>
+				<button class="link" id="show-register">New to Navigators?</li>
 			</div>';
 		
 		$html .= '
@@ -32,7 +32,7 @@ class login {
 					<li><input type="text" name="email" value=""></li>
 					<li><input type="submit" value="Register"></form></li>
 				</form>
-				<button id="show-login">Already have an account?</li>
+				<button class="link" id="show-login">Already have an account?</li>
 			</div>';
 		
 		return $html;
