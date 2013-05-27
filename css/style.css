@@ -22,14 +22,13 @@ body {
 	max-width:600px;
 	padding-top: 4em;
 	padding-left: 11em;
-	font-family: "Trebuchet MS";
+	font-family: "Helvetica";
 	color: grey;
 	background-color: #B6C5BE;
 }
 
-ul, li {
+li {
     list-style-type: none;
-    color: grey;
 }
 
 div.subsystem {
@@ -38,18 +37,28 @@ div.subsystem {
 	text-align: center;
 	padding-left: 2em;
 	padding-right: 2em;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 div.subsection {
 	background: grey; // need columns if possible
 	text-align: center;
+	float-bottom;
+	margin-bottom: 20px;
 	padding-left: 2em; 
 	padding-right: 2em;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
 div.subsubsection {
 	background: lightgrey;
 	text-align: left;
+	float: bottom;
+	margin-bottom: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 	padding-left: 2em;
 	padding-right: 2em;
 }
@@ -68,6 +77,5 @@ footer {
 	font-size: 12;
 	position:absolute;
     bottom:0;
-    width:50%;
     height:100px;
 }

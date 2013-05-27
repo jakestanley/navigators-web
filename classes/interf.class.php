@@ -33,11 +33,10 @@ class interf {
 		<div class="subsystem" id="nav">
 			<h2>Navigation interface</h2>
 			<div class="subsection" id="current">
-				Current system: Sol
-				Target system: Alpha Centauri
-				Estimated distance: 4.367 light years
-				
-				Estimated journey time: 3.2 days
+				<li>Current system: Sol</li>
+				<li>Target system: Alpha Centauri</li>
+				<li>Estimated distance: 4.367 light years</li>
+				<li>Estimated journey time: Approximately 3.12 days</li>
 			</div>
 		</div>
 		<div class="subsystem" id="ls">
@@ -64,6 +63,18 @@ class interf {
 		</div>
 		<div class="subsystem" id="hardware">
 			<h2>Hardware inspector</h2>
+			<div class="subsection" id="installed">
+				<div class="subsubsection" id="engine">
+					<li>Installed engine:</li>
+					<li>Cassandra 3</li>
+					<li>Capable of a maximum speed of 1.4ly/d</li>
+				</div>
+				<div class="subsubsection" id="support">
+					<li>Installed life support:</li>
+					<li>Theresa 7</li>
+					<li>Capable of supporting up to 5 life forms</li>
+				</div>
+			</div>
 		</div>';
 		
 		return $html;
