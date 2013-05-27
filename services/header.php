@@ -10,9 +10,10 @@ include 'classes/db.class.php';
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<meta charset="UTF-8">
 		<title>Navigators</title>
-	</head>
-		<body>
-		<div id="content">'; // Body is closed by the footer.php file
+		<div id="content">';
+
+	echo '</head>
+		<body>'; // Body is closed by the footer.php file
 		
 		if(isset($_GET["e"])){ // Error codes
 			$e = $_GET["e"];

@@ -1,8 +1,12 @@
 // Stolen from my website.
 
+# {
+	width: 800 px;
+}
+
 a {	
 	cursor: pointer;
-	color: white;
+	color: whitesmoke;
 	text-decoration: none;
 }
 h1 {
@@ -28,6 +32,32 @@ ul, li {
     color: grey;
 }
 
+div.subsystem {
+	background: darkgrey;
+	height: 400px;
+	text-align: center;
+	padding-left: 2em;
+	padding-right: 2em;
+}
+
+div.subsection {
+	background: grey; // need columns if possible
+	text-align: center;
+	padding-left: 2em; 
+	padding-right: 2em;
+}
+
+div.subsubsection {
+	background: lightgrey;
+	text-align: left;
+	padding-left: 2em;
+	padding-right: 2em;
+}
+
+div.subsystem, h2 {
+	color: white;
+}
+
 button.link {
 	background: none;
 	border: none;
@@ -38,6 +68,6 @@ footer {
 	font-size: 12;
 	position:absolute;
     bottom:0;
-    width:100%;
+    width:50%;
     height:100px;
 }
