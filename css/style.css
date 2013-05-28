@@ -4,6 +4,14 @@
 	width: 800 px;
 }
 
+/*#forms-register {
+	display: none;
+}
+
+#forms-login {
+	display: none;
+}*/
+
 a {	
 	cursor: pointer;
 	color: whitesmoke;

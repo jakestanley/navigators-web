@@ -5,14 +5,14 @@ class interf {
 	public function buildSubsystemsBar(){ // All these systems are getting too complex. Remember, it's complexity in as simple a layout as possible. If that makes any sense at all.
 		
 		$html = '<div id="subsystems">
-			<button class="subbar" id="status">Status</button>
-			<button class="subbar" id="nav">Navigation</button>
-			<button class="subbar" id="ls">Life Support</button>
-			<button class="subbar" id="arms">Armaments</button>
-			<button class="subbar" id="crew">Crew</button>
-			<button class="subbar" id="comms">Communications</button>
-			<button class="subbar" id="energy">Energy</button>
-			<button class="subbar" id="hardware">Hardware</button>
+			<button class="subbar" rel="status">Status</button>
+			<button class="subbar" rel="nav">Navigation</button>
+			<button class="subbar" rel="ls">Life Support</button>
+			<button class="subbar" rel="arms">Armaments</button>
+			<button class="subbar" rel="crew">Crew</button>
+			<button class="subbar" rel="comms">Communications</button>
+			<button class="subbar" rel="energy">Energy</button>
+			<button class="subbar" rel="hardware">Hardware</button>
 		</div>';
 		
 		return $html;
