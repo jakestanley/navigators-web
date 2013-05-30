@@ -26,7 +26,7 @@ class login {
 				<form method="post" action="services/register.php">
 					<label>Username</label>
 					<input type="text" name="user" value="">
-					<label>Password (Uses less secure MD5 for now)</label>
+					<label>Password</label>
 					<input type="password" name="pw" value="">
 					<label>Confirm password</label>
 					<input type="password" name="cpw" value="">
