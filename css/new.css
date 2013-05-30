@@ -1,0 +1,55 @@
+li {
+    list-style-type: none;
+}
+
+h1 {
+	color: #787878; /* Fallback */
+	color: rgba(0, 0, 0, 0.5);  /* Newer browsers with RGBA support */
+}
+
+body {
+	font-family: "Helvetica";	
+}
+
+html, body {
+
+	background: #B6C5BE;
+	height: 100%;
+}
+
+#errorcode {
+	text-align: center;
+}
+
+a {	
+	cursor: pointer;
+	color: whitesmoke;
+	text-decoration: none;
+}
+
+#mainsection {
+	background-color: blue;
+	background-color: rgba(0, 255, 255, 0.75);
+}
+
+#sidesection {
+	background-color: orange;
+	background-color: rgba(255, 165, 0, 0.75);
+}
+
+#bottomsection {
+	margin-top: 20px;
+	background-color: red;
+	background-color: rgba(255, 0, 0, 0.75);
+	text-align: center;
+	color: whitesmoke;
+}
+
+#bottom {
+	padding-top: 10px;
+	font-size: 12;
+	position: absolute;
+    bottom: 0;
+    height: 100px;
+	width: 100%;
+}

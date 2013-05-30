@@ -7,17 +7,17 @@ include 'classes/db.class.php';
 	<head>
 		<link rel="stylesheet" type="text/css" href="css/normalize.css"/>
 		<link rel="stylesheet" type="text/css" href="css/foundation.css"/>
-		<link rel="stylesheet" type="text/css" href="css/app.css"/>
+		<link rel="stylesheet" type="text/css" href="css/new.css"/>
 		<meta charset="UTF-8">
 		<title>Navigators</title>
-		<div id="content">';
+		<div id="wrapper">';
 
 	echo '</head>
 		<body>'; // Body is closed by the footer.php file
 		
 		if(isset($_GET["e"])){ // Error codes
 			$e = $_GET["e"];
-			$error = "<somecode>Error code $e: ";
+			$error = "<div class=\"row\" id=\"errorcode\"><somecode>Error code $e: ";
 			
 			if($e == 1){
 				$error .= "Invalid login credentials";
@@ -33,7 +33,7 @@ include 'classes/db.class.php';
 				$error .= "There is already a user registered with that email address";
 			}
 			
-			$error .= "</somecode>";
+			$error .= "</somecode></div>";
 			echo $error;
 		}
 		
