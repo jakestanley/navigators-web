@@ -19,7 +19,7 @@ $interface = new interf();
 		
 		if(isset($_GET["e"])){ // Error codes
 			$e = $_GET["e"];
-			$error = "<div class=\"row\" id=\"errorcode\"><somecode><h4>Error code $e: ";
+			$error = "<div class=\"row somecode\"><h4>Error code $e: ";
 			
 			if($e == 1){
 				$error .= "Invalid login credentials";
@@ -35,17 +35,17 @@ $interface = new interf();
 				$error .= "There is already a user registered with that email address";
 			}
 			
-			$error .= "</h4></somecode></div>";
+			$error .= "</h4></div>";
 			echo $error;
 		}
 		
 		if(isset($_GET["s"])){ // Success codes
 			$s = $_GET["s"];
-			$success = "<somecode>Success code $s: ";
+			$success = "<div class=\"row somecode\"><h4>Success code $s: ";
 			if($s == 1){
-				$success .= "You successfully registered! Check your emails for account verification instructions";
+				$success .= "You successfully registered!"; // Check your emails for account verification instructions";
 			}
-			$success .= "</somecode>";
+			$success .= "</h4></div>";
 			echo $success;
 		}
 	

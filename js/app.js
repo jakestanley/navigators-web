@@ -7,7 +7,7 @@ $(document).ready(function(){
 		var hash = window.location.hash;
 		
 		$("div#content").hide().next().delay(500);
-		$("#errorcode").hide();
+		$(".somecode").hide();
 		$("div#content").fadeIn();
 	
 		// LOGIN PAGE
@@ -25,7 +25,7 @@ $(document).ready(function(){
 			$("#forms-register").hide();
 		}
 		
-		$("#errorcode").slideDown().delay(2500).slideUp();
+		$(".somecode").slideDown().delay(2500).slideUp();
 	
 	//	$("div#forms-register").hide(); // Need to work out a way to show this if an error code is thrown up for registration
 										// Also need a way to put details back in to the form so users don't have to type them in again

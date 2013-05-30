@@ -17,12 +17,11 @@ body {
 }
 
 html, body {
-
 	background: #B6C5BE;
 	height: 100%;
 }
 
-#errorcode {
+.somecode {
 	text-align: center;
 }
 
