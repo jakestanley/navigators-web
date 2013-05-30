@@ -152,6 +152,17 @@ class interf {
 		
 	}
 	
+	public function buildActionBar(){
+		$html .= '
+				<div class="row" id="actionbar">
+					<div class="large-12 columns">
+					<h5>Action bar: WARNING! Your life support resources will be depleted before you reach your destination!</h5>
+					</div>
+				</div>';
+			
+		return $html;
+	}
+	
 	public function buildMainSection(){
 		
 		$html = '
@@ -261,17 +272,6 @@ class interf {
 		</div>';
 		return $html;
 		
-	}
-	
-	public function buildBottomSection(){
-		$html .= '
-				<div class="row" id="bottomsection">
-					<div class="large-12 columns">
-					<h5>Action bar: WARNING! Your life support resources will be depleted before you reach your destination!</h5>
-					</div>
-				</div>';
-			
-		return $html;
 	}
 
 }
