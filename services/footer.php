@@ -1,6 +1,9 @@
 <?php session_start();
 	
-	echo '</body>
+	echo '<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script language="javascript" type="text/javascript" src="js/foundation.min.js"></script>
+		<script language="javascript" type="text/javascript" src="js/app.js"></script>
+		</body>
 		<footer>';
 		
 	$logged = "";

@@ -29,6 +29,9 @@ class interf {
 			<div class="subsection" id="systems">
 				<h3>All systems functional</h3>
 			</div>
+			<div class="subsection" id="overview">
+				<h3>Ship overview</h3>
+			</div>
 		</div>
 		<div class="subsystem" id="nav">
 			<h2>Navigation interface</h2>
@@ -41,6 +44,12 @@ class interf {
 		</div>
 		<div class="subsystem" id="ls">
 			<h2>Life support interface</h2>
+			<div class="subsection" id="current">
+				<li>Breathing conditions: Excellent</li>
+				<li>Auto-medicate: 100% operational</li>
+				<li>Average temperature: 21c</li>
+				<li>Estimated lifespan: 1,355 hours</li>
+			</div>
 		</div>
 		<div class="subsystem" id="arms">
 			<h2>Armaments interface</h2>
@@ -78,7 +87,22 @@ class interf {
 		</div>';
 		
 		return $html;
-		
+	}
+	
+	public function buildActionBar(){
+		$html .= '<div class="actionbar">
+				<p>Action bar</p>
+			</div>';
+			
+		return $html;
+	}
+	
+	public function buildSideBar(){
+		$html .= '<div class="sidebar">
+			Side bar
+				<!-- THIS IS THE SIDE BAR. THIS IS WHERE ALL NON ESSENTIAL, BUT NEVERTHELESS NECESSARY INFORMATION WILL BE SHOWN. THE ACTION BAR IS FOR ALERTS AND EMERGENCIES, BUT THIS IS MORE FOR SHIP MESSAGES, GAME MESSAGES, ETC. I DON\'T KNOW WHY I PUT THIS IN CAPS, I JUST DID. -->
+		</div>';
+		return $html;
 	}
 	
 	

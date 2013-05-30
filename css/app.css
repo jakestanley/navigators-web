@@ -1,7 +1,7 @@
 // Stolen from my website.
 
 # {
-	width: 800 px;
+	width: 720 px;
 }
 
 /*#forms-register {
@@ -27,7 +27,7 @@ somecode {
 	font-size: 75%;
 }
 body {
-	max-width:600px;
+	max-width:720px;
 	padding-top: 4em;
 	padding-left: 11em;
 	font-family: "Helvetica";
@@ -43,21 +43,36 @@ div.subsystem {
 	background: darkgrey;
 	height: 400px;
 	text-align: center;
-	padding-left: 2em;
-	padding-right: 2em;
+	margin-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
 
 div.subsection {
+	display: block;
 	background: grey; // need columns if possible
 	text-align: center;
-	float-bottom;
-	margin-bottom: 20px;
-	padding-left: 2em; 
-	padding-right: 2em;
+	margin-bottom: 10px;
+	padding-left: 5px; 
+	padding-right: 5px;
 	padding-top: 5px;
 	padding-bottom: 5px;
+}
+
+div.sidesection {
+	background: darkgrey;
+	color: white;
+	float: left;
+	margin-left: 10px;
+	display: block;
+}
+
+div.mainsection {
+	float: left;
+	margin-left: 10px;
+	display: block;
 }
 
 div.subsubsection {
@@ -75,6 +90,13 @@ div.subsystem, h2 {
 	color: white;
 }
 
+div.actionbar {
+	background: #DC143C;
+	height: 30px;
+	color: white;
+	text-align: center;
+}
+
 button.link {
 	background: none;
 	border: none;
@@ -82,8 +104,9 @@ button.link {
 }
 
 footer {
+	padding-top: 10px;
 	font-size: 12;
-	position:absolute;
-    bottom:0;
-    height:100px;
+	position: absolute;
+    bottom: 0;
+    height: 100px;
 }
