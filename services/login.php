@@ -17,7 +17,7 @@ if((isset($_POST["user"]) && isset($_POST["pw"]))){
 		$_SESSION["username"] = $row["Username"];
 		header("location: ../");
 	} else {
-		header("location: ../index.php?e=1");
+		header("location: ./e=1");
 	}
 }	
 ?>
