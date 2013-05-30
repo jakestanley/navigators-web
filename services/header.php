@@ -1,6 +1,8 @@
 <?php session_start();
 
 include 'classes/db.class.php';
+include 'classes/interf.class.php';
+$interface = new interf();
 	
 	echo '<!DOCTYPE HTML>
 <html lang="en-GB">

@@ -4,7 +4,7 @@ class login {
 	
 	public function buildLogin(){
 		
-		$html = '<div class="row"><h1>Welcome to Navigators</h1></div>';
+		$html = '<h1>Welcome to Navigators</h1>';
 		
 		$html .= '<div class="row">
 					<div class="large-4 columns">';

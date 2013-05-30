@@ -2,7 +2,7 @@
 	
 class interf {
 	
-	public function buildTopSection(){
+	public function buildTopSection($play){
 		
 		// Search function
         // <form>
@@ -16,39 +16,21 @@ class interf {
         //   </div>
         // </form>
 		
-		// $html = '
-		// 	<div class="row" id="subbar">
-		// 		<div class="large-12 columns">
-		// 			<ul class="button-group">
-		// 				<li><a href="#" class="button small secondary" rel="status">Status</a></li>
-		// 				<li><a href="#" class="button small secondary" rel="nav">Navigation</a></li>
-		// 				<li><a href="#" class="button small secondary" rel="ls">Life</a></li>
-		// 				<li><a href="#" class="button small secondary" rel="arms">Arms</a></li>
-		// 				<li><a href="#" class="button small secondary" rel="crew">Crew</a></li>
-		// 				<li><a href="#" class="button small secondary" rel="comms">Comms</a></li>
-		// 				<li><a href="#" class="button small secondary" rel="energy">Energy</a></li>
-		// 				<li><a href="#" class="button small secondary" rel="hardware">Hardware</a></li>
-		// 				<li><a href="#" class="button small secondary" rel="somebutton1">button9</a></li>
-		// 				<li><a href="#" class="button small secondary" rel="somebutton2">button10</a></li>
-		// 				<li><a href="#" class="button small secondary" rel="somebutton3">button11</a></li>
-		// 				<li><a href="#" class="button small secondary" rel="somebutton4">button12</a></li>
-		// 			</ul>
-		// 		</div>
-		// 	</div>';
-		
 		$html = '
 			<nav class="top-bar" id="topsection">
 			  <ul class="title-area">
 			    <li class="name">
-			      <h1><a href="#">Navigators </a></h1>
+			      <h1><a href="./">Navigators </a></h1>
 			    </li>
 			    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
 			  </ul>
 
 			  <section class="top-bar-section">
 			    <ul class="left">
+			      <li class="divider"></li>';
 				
-			      <li class="divider"></li>
+				if($play == 1){
+				$html .= '
 			      <li><a href="#" class="subbar" rel="status">Status</a></li>
 			      <li class="divider"></li>
 			      <li><a href="#" class="subbar" rel="nav">Navigation</a></li>
@@ -64,9 +46,8 @@ class interf {
 			      <li><a href="#" class="subbar" rel="energy">Energy</a></li>
 			      <li class="divider"></li>
 			      <li><a href="#" class="subbar" rel="hardware">Hardware</a></li>
-				  
-			</ul>';
-				  
+  			      <li class="divider"></li>';
+			  }
 				  
 			      // <li><a href="#">Main Item 2</a></li>
 // 			      <li class="divider"></li>
@@ -109,15 +90,17 @@ class interf {
 // 			    </ul>
 
 				$html .= '
-			    <!-- Right Nav Section -->
-			    <ul class="right">
-				
-				  <li class="divider"></li>
-				  <li><a href="#">About</a></li>
-			      <li class="divider"></li>
-			      <li><a href="#">Contact</a></li>
-			      <li class="divider"></li>
-			      <li><a href="#">Logout</a></li>';
+				  
+			</ul>
+				<ul class="right">				
+					<li class="divider"></li>
+					<li><a href="about.php">About</a></li>
+					<li class="divider"></li>
+					<li><a href="contact.php">Contact</a></li>';
+				   	if(isset($_SESSION["username"])){
+	  			      $html .= '<li class="divider"></li>
+	  			      <li><a href="services/logout.php">Logout</a></li>';
+				  	}
 				  
 				  // <li class="divider hide-for-small"></li>
  // 			      <li class="has-dropdown"><a href="#">Main Item 4</a>
@@ -174,89 +157,93 @@ class interf {
 		$html = '
 		<div class="large-8 columns" id="mainsection">
 			<div class="subsystem" id="status">	
-				<div class="row">
-					<h2>Status interface</h2>
-					<div class="subsection" id="health">
-						<h3 class="subheader">Health: 100%</h3>
-					</div>
-					<div class="subsection" id="systems">
-						<h3 class="subheader">All systems functional</h3>
-					</div>
-					<div class="subsection" id="overview">
-						<h3 class="subheader">Ship overview</h3>
-					</div>
+				<h2>Status interface</h2>
+				<div class="subsection" id="health">
+					<h3 class="subheader">Health: 100%</h3>
+				</div>
+				<div class="subsection" id="systems">
+					<h3 class="subheader">All systems functional</h3>
+				</div>
+				<div class="subsection" id="overview">
+					<h3 class="subheader">Ship overview</h3>
 				</div>
 			</div>
 	
 			<div class="subsystem" id="nav">
-				<div class="row">
-					<h2>Navigation interface</h2>
-					<div class="subsection" id="current">
-						<li>Current system: Sol</li>
-						<li>Target system: Alpha Centauri</li>
-						<li>Estimated distance: 4.367 light years</li>
-						<li>Estimated journey time: Approximately 3.12 days</li>
-					</div>
+				<h2>Navigation interface</h2>
+				<div class="subsection" id="current">
+					<h3 class="subheader">Current system: Sol</h3>
+					<h3 class="subheader">Target system: Alpha Centauri</h3>
+					<h3 class="subheader">Estimated distance: 4.367 light years</h3>
+					<h3 class="subheader">Estimated journey time: Approximately 3.12 days</h3>
 				</div>
 			</div>
 	
 			<div class="subsystem" id="ls">
-				<div class="row">
-					<h2>Life support interface</h2>
-					<div class="subsection" id="current">
-						<li>Breathing conditions: Excellent</li>
-						<li>Auto-medicate: 100% operational</li>
-						<li>Average temperature: 21c</li>
-						<li>Estimated lifespan: 1,355 hours</li>
-					</div>
+				<h2>Life support interface</h2>
+				<div class="subsection" id="current">
+					<h3 class="subheader">Breathing conditions: Excellent</h3>
+					<h3 class="subheader">iNurse: 100% operational</h3>
+					<h3 class="subheader">Average temperature: 21c</h3>
+					<h3 class="subheader">Estimated lifespan: 37 hours</h3>
 				</div>
 			</div>
 	
 			<div class="subsystem" id="arms">
-				<div class="row">
-					<h2>Armaments interface</h2>
-				</div>
+				<h2>Armaments interface</h2>
 			</div>
 	
 			<div class="subsystem" id="crew">
-				<div class="row">
-					<h2>Crew management interface</h2>
-				</div>
+				<h2>Crew management interface</h2>
 			</div>
 	
 			<div class="subsystem" id="comms">
-				<div class="row">
-					<h2>Communications interface</h2>
-					<div class="subsection" id="communicables">
-						<h3>Available objects for communications</h3>
-						<div class="subsubsection" id="communicable">A ship</div>
-						<div class="subsubsection" id="communicable">A station</div>
-						<div class="subsubsection" id="communicable">A planet</div>
-						<div class="subsubsection" id="communicable">A miner</div>
-					</div>
+				<h2>Communications interface</h2>
+				<div class="subsection" id="communicables">
+					<h3 class="subheader">Available objects for communications</h3>
+					<h4 class="subheader">A ship</h4>
+					<h4 class="subheader">A station</h4>
+					<h4 class="subheader">A planet</h4>
+					<h4 class="subheader">A miner</h4>
 				</div>
 			</div>
 	
 			<div class="subsystem" id="energy">
-				<div class="row">
 					<h2>Energy management interface</h2>
-				</div>
 			</div>
 	
 			<div class="subsystem" id="hardware">
-				<div class="row">
-					<h2>Hardware inspector</h2>
-					<div class="subsection" id="installed">
-						<div class="subsubsection" id="engine">
-							<li>Installed engine:</li>
-							<li>Cassandra 3</li>
-							<li>Capable of a maximum speed of 1.4ly/d</li>
-						</div>
-						<div class="subsubsection" id="support">
-							<li>Installed life support:</li>
-							<li>Theresa 7</li>
-							<li>Capable of supporting up to 5 life forms</li>
-						</div>
+				<h2>Hardware inspector</h2>
+				<div class="large-3 columns">
+					<div class="subsection">
+					<h4 class="subheader">Engine</h4>
+					<h6 class="subheader">Make: Cassandra 3</h5>
+					<h6 class="subheader">Max speed: 1.4 LY/d</h5>
+					<h6 class="subheader">Mileage: 167 LY</h5>
+					</div>
+				</div>
+				<div class="large-3 columns">
+					<div class="subsection">
+					<h4 class="subheader">ECLSS</h4>
+					<h6 class="subheader">Make: Theresa 7</h5>
+					<h6 class="subheader">Capacity: 6 (human)</h5>
+					<h6 class="subheader">Expectancy: 37 hours</h5>
+					</div>
+				</div>
+				<div class="large-3 columns">
+					<div class="subsection">
+					<h4 class="subheader">Generator</h4>
+					<h6 class="subheader">Make: </h5>
+					<h6 class="subheader">Maximum output: </h5>
+					<h6 class="subheader">Maximum operating temp: </h5>
+					</div>
+				</div>
+				<div class="large-3 columns">
+					<div class="subsection">
+					<h4 class="subheader">Computer</h4>
+					<h6 class="subheader">Make: </h5>
+					<h6 class="subheader">CPU: </h5>
+					<h6 class="subheader">Memory: </h5>
 					</div>
 				</div>
 			</div>
@@ -279,7 +266,9 @@ class interf {
 	public function buildBottomSection(){
 		$html .= '
 				<div class="row" id="bottomsection">
-					<div class="large-12 columns">Action bar</div>
+					<div class="large-12 columns">
+					<h5>Action bar: WARNING! Your life support resources will be depleted before you reach your destination!</h5>
+					</div>
 				</div>';
 			
 		return $html;

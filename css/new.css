@@ -7,6 +7,11 @@ h1 {
 	color: rgba(0, 0, 0, 0.5);  /* Newer browsers with RGBA support */
 }
 
+h6.subheader {
+	text-align: left;
+	padding-left: 10px;
+}
+
 body {
 	font-family: "Helvetica";	
 }
@@ -27,6 +32,12 @@ a {
 	text-decoration: none;
 }
 
+.subsection {
+	background-color: lightblue;
+	background-color: rgba(125, 158, 192, 0.25);
+	text-align: center;
+}
+
 #mainsection {
 	background-color: blue;
 	background-color: rgba(0, 255, 255, 0.75);
@@ -38,7 +49,8 @@ a {
 }
 
 #bottomsection {
-	margin-top: 20px;
+	display: none;
+/*	margin-top: 20px;*/
 	background-color: red;
 	background-color: rgba(255, 0, 0, 0.75);
 	text-align: center;
@@ -49,6 +61,7 @@ a {
 	padding-top: 10px;
 	font-size: 12;
 	position: absolute;
+	text-align: right;
     bottom: 0;
     height: 100px;
 	width: 100%;

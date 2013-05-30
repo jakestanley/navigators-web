@@ -50,14 +50,18 @@ $(document).ready(function(){
 		// INTERFACE PAGE
 	
 		function showStatus(){ // put this default action in CSS
+			$("div.subsystem").hide();
 			$("div.subsystem#status").show();
-			$("div.subsystem#ls").hide();
-			$("div.subsystem#nav").hide();
-			$("div.subsystem#arms").hide();
-			$("div.subsystem#crew").hide();
-			$("div.subsystem#comms").hide();
-			$("div.subsystem#energy").hide();
-			$("div.subsystem#hardware").hide();
+		}
+		
+		function changeSectionHeights(){ // Works but not for child elements
+			var sideSectionHeight = $('#sidesection').height();
+			var mainSectionHeight = $('#mainsection').height();
+			if(mainSectionHeight < sideSectionHeight){
+				$('#mainsection').css('height', sideSectionHeight);
+			} else if(mainSectionHeight > sideSectionHeight){
+				$('#sidesection').css('height', mainSectionHeight);
+			}
 		}
 
 	// MOUSE CLICKS
@@ -78,6 +82,21 @@ $(document).ready(function(){
 			var target = $(this).attr('rel');
 			$(".subsystem").hide();
 			$('#'+target).show();
+			//changeSectionHeights();
+			
+			//function to handle height
+			
+		});
+		
+		var sideSectionHeight = $('#sidesection').height();
+		
+		//$('#mainsection').css('height', sideSectionHeight);
+		
+		$(window).resize(function(){
+			//console.log($('#mainsection').height());
+			//function
+			//which one is the tallest
+			//change height accordingly
 		});
 	
 });
