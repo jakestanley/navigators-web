@@ -4,7 +4,9 @@ class login {
 	
 	public function buildLogin(){
 		
-		$html = '<h1>Welcome to Navigators</h1>';
+		$facebook = ''; // '<div class="large-6 columns"><a href="services/login.php?fb=1"><button class="link" id="facebook-login">Login with Facebook</button></a></div>';
+		
+		$html .= '<h1>Welcome to Navigators</h1>';
 		
 		$html .= '<div class="row">
 					<div class="large-4 columns">';
@@ -18,7 +20,9 @@ class login {
 					<input type="password" name="pw" value="">
 					<input type="submit" value="Login">
 				</form>
-				<button class="link" id="show-register">New to Navigators?</li>
+				<div class="large-12 columns">
+					<button class="link" id="show-register">New to Navigators?</button>
+				</div>'.$facebook.'
 			</div>';
 			
 		$html .= '
@@ -34,11 +38,15 @@ class login {
 					<input type="text" name="email" value="">
 					<input type="submit" value="Register"></form>
 				</form>
-				<button class="link" id="show-login">Already have an account?</li>
+				<div class="large-12 columns">
+					<button class="link" id="show-login">Already have an account?</button>
+				</div>'.$facebook.'
 			</div>';
 			
-		$html .= '</div>
-				</div>';
+		$html .= '
+				
+			</div>
+		</div>';
 		
 		return $html;
 		

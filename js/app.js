@@ -6,9 +6,9 @@ $(document).ready(function(){
 		
 		var hash = window.location.hash;
 		
-		$("div#content").hide().next().delay(500);
-		$(".somecode").hide();
+		$("div#content").hide().delay(50);
 		$("div#content").fadeIn();
+		$(".somecode").hide();
 	
 		// LOGIN PAGE
 		
