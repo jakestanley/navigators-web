@@ -4,7 +4,7 @@ class interf {
 	
 	public function buildTopSection($play){
 		
-		// Search function
+		// Search function -- Could use this search function with some Javascript to find a particular panel?
         // <form>
         //   <div class="row collapse">
         //     <div class="small-8 columns">
@@ -163,14 +163,14 @@ class interf {
 		return $html;
 	}
 	
-	public function buildMainSection(){
+	public function buildMainSection(){ // <dyn> tag represents a dynamic variable?
 		
 		$html = '
 		<div class="large-8 columns" id="mainsection">
 			<div class="subsystem" id="status">	
 				<h2>Status interface</h2>
 				<div class="subsection" id="health">
-					<h3 class="subheader">Health: 100%</h3>
+					<h3 class="subheader">Health: <dyn id="healthVal">100</dyn>%</h3>
 				</div>
 				<div class="subsection" id="systems">
 					<h3 class="subheader">All systems functional</h3>
@@ -268,7 +268,7 @@ class interf {
 		$html .= '
 		<div class="large-4 columns" id="sidesection">
 			<h2>Side bar</h2>
-			<h3 class="subheader">Information shows up here that does not change when you change interfaces, if that makes sense.</h3>
+			<h3 class="subheader" id="statusBar">Information shows up here that does not change when you change interfaces, if that makes sense.</h3>
 		</div>';
 		return $html;
 		

@@ -1,4 +1,10 @@
 $(document).ready(function(){
+//	var game = require("game.js");
+// 	if(game){
+// 		console.log(game.loaded());
+// 	} else {
+// 		console.log("Couldn't load game stuff");
+// 	}
 
 	// ON LOAD
 
@@ -9,6 +15,8 @@ $(document).ready(function(){
 		$("div#content").hide().delay(50);
 		$("div#content").fadeIn();
 		$(".somecode").hide();
+		
+		setInterval(gameLoop, 50); // This does all the game stuff forever (or until it is stopped)
 	
 		// LOGIN PAGE
 		
@@ -32,7 +40,7 @@ $(document).ready(function(){
 									
 		// INTERFACE PAGE
 
-				showStatus(); // put this default action in CSS
+		showStatus(); // put this default action in CSS
 
 	// FUNCTIONS
 

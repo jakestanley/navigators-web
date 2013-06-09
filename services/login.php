@@ -2,7 +2,7 @@
 
 include '../classes/db.class.php';
 	
-if((isset($_POST["user"]) && isset($_POST["pw"])) && !isset($_GET["fb"])){
+if((isset($_POST["user"]) && isset($_POST["pw"])) && !isset($_GET["fb"])){ // Need to use node to say when a player connects
 
 // || (isset($_COOKIE["animal-shelter-user-1992"]) && (isset($_COOKIE["animal-shelter-pass-1992"])))){ or if there are cookies set
 	
