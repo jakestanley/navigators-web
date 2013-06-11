@@ -10,6 +10,13 @@ $(document).ready(function(){
 
 		// ALL PAGES
 		
+		
+		if('WebSocket' in window){
+			console.log("This browser supports WebSockets"); // need to display something accordingly if the browser doesn't support WS
+		} else {
+			console.log("This browser does not support WebSockets");
+		}
+		
 		var hash = window.location.hash;
 		
 		$("div#content").hide().delay(50);

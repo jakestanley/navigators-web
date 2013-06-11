@@ -14,11 +14,8 @@
 			</div>
 		<script src="js/jquery.min.js"></script>
 		<script language="javascript" type="text/javascript" src="js/foundation.min.js"></script>
-		<script language="javascript" type="text/javascript" src="js/app.js"></script>';
-		if(isset($_SESSION["userID"]) && isset($_SESSION["username"])){
-			echo '<script type="text/javascript" src="js/game.js"></script>'; // This is all the game stuff. This and maybe other scripts will interact with node.js and sort the game logic
-		}
-		echo '
+		<script language="javascript" type="text/javascript" src="js/app.js"></script>
+		<script type="text/javascript" src="js/game.js"></script> 
 		</body>
 </html>'; // Footer simply closes the body, adds the footer and closes the html.
 	

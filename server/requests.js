@@ -1,3 +1,5 @@
+// Does different stuff based on requests to the node.js server
+
 var exec = require("child_process").exec;
 
 function start() {
@@ -7,8 +9,6 @@ function start() {
   exec("ls -lah", function (error, stdout, stderr) { 
 	  content = stdout;
   });
-
-	//sleep(10000);
 	return "Hello Start";
 }
 
